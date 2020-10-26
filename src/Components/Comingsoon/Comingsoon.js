@@ -21,7 +21,7 @@ class Comingsoon extends Component {
                 <div class="middle">
                     <h1>COMING SOON</h1>
                     <hr />
-                    <p>30 days</p>
+                    <p>32 days</p>
                 </div>
                 <div className="bottomleft">
                 <a href='https://www.instagram.com/swervenation_clothing/'>
