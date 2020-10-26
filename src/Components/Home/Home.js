@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Home.scss';
 import Button from '@material-ui/core/Button';
-import Fade from '@material-ui/core/Fade';
+// import Fade from '@material-ui/core/Fade';
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobeAmericas, faPhone} from '@fortawesome/free-solid-svg-icons'
