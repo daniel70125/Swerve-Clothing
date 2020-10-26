@@ -16,7 +16,7 @@ class Comingsoon extends Component {
             <div style={{"width":"100vw", "height":"100vh"}}>
             <div class="bgimg">
                 <div className="topleft">
-                    <img style={{"width":"20vw"}} src={Logo} alt='swerve-logo' />
+                    <img className='logo-cs' src={Logo} alt='swerve-logo' />
                 </div>
                 <div class="middle">
                     <h1>COMING SOON</h1>

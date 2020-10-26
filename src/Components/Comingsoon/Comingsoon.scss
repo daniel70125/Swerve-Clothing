@@ -47,3 +47,11 @@
     margin: auto;
     width: 40%;
   }
+  .logo-cs {
+    width:20vw;
+  }
+  @media only screen and (min-width: 600px) {
+    .logo-cs {
+      width:8vw;
+    }
+  }
