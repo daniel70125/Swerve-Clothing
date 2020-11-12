@@ -1,5 +1,19 @@
+.home-quote {
+    font-family: 'Condiment', cursive;
+    text-align: center;
+    font-size: 27px;
+    margin: 0;
+    color: black;
+    text-decoration: underline;
+}
+#main-quote-div {
+    margin:15px 0;
+}
 #container {
     min-height:90vh;
+        #home-slideshow {
+            height:40vh;
+        }
         #home-landing-box{
             // border:2px solid red;
             display: flex;
@@ -28,9 +42,9 @@
     }
   }
 #home-qoute {
-    height:40vh;
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
         .quote-cont {
             height:20vh;
             display: flex;
@@ -62,15 +76,42 @@
     animation-name: worldSpin;
     animation-iteration-count: infinite;
 }
-@media only screen and (min-width: 600px) {
+// IPAD
+@media only screen and (min-width: 768px) {
     #container {
         min-height:100vh;
-        margin-left:6vw;
+        margin-left:14vw;
         #home-landing-box {
             height:150vh;
+            background-position: center;  
+            background-repeat: no-repeat;
                 hr {
                     width:25%;
                 }
         }
     }
+    #home-qoute {
+        flex-direction: row;
+        padding: 5px;
+        // border: 2px ridge red;
+            .quote-cont {
+                width:50%;
+                
+            }
+    }
+}
+// Laptop
+@media only screen and (min-width: 1200px) {
+    #container {
+        margin-left:6vw;
+            
+    }
+    #home-qoute{
+        .quote-cont {
+            .home-icon-intro1 {
+                width:20%;
+            }
+        }
+
+    } 
 }

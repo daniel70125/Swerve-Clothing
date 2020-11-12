@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faHome, faTshirt, faEnvelope, faAddressCard, faBars, faTimes, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
-import {  faLinkedin, faTwitter  } from '@fortawesome/free-brands-svg-icons';
+import {  faInstagram, faLinkedin, faTwitter  } from '@fortawesome/free-brands-svg-icons';
 import {Link} from 'react-router-dom';
 import './Header.scss';
 import Logo from '../../Pictures/swerve-logo.png'
@@ -56,9 +56,9 @@ class Header extends Component {
                     <Link to='#'>
                         <FontAwesomeIcon icon={faTwitter} />
                     </Link>
-                    <Link to='#'>
-                        <FontAwesomeIcon icon={faLinkedin} />
-                    </Link>
+                    <a href='https://www.instagram.com/swervenation_clothing/'>
+                        <FontAwesomeIcon icon={faInstagram} />
+                    </a>
                 </div>
 
                 </div>

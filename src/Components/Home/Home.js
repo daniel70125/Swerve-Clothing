@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Home.scss';
+import Slideshow from '../Slideshow/Slideshow';
 import Button from '@material-ui/core/Button';
 // import Fade from '@material-ui/core/Fade';
 import {Link} from 'react-router-dom'
@@ -16,11 +17,16 @@ class Home extends Component {
             <div id='container'>
                 <div id='home-landing-box'>
                     <h1>Swerve Nation</h1>
-                    <hr />
+                    <hr style={{"color":""}}/>
                     <Link to='/products/'>
                         <Button variant="contained" color="primary" disableElevation>Shop Now</Button>
                     </Link>
                 </div>
+                <div id='main-quote-div'>
+                    <p className="home-quote">Swerve Nation is a worldwide favorite!</p>
+                </div>
+                
+                <Slideshow />
                 <div id='home-qoute'>
                     <div className='quote-cont'>
                         <div className='home-icon-intro1'>

@@ -1,5 +1,5 @@
 module.exports = {
-    getUser: (req, res) => {
+    getPopular: async (req, res) => {
         
     }
 }

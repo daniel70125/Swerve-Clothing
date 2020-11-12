@@ -52,14 +52,16 @@ app.get('/session', (req, res) => {
     req.session.user = {}
     res.status(200).send(req.session)
 });
-// app.get('/item/:id', async (req, res) => {
-//     const {id} = req.params;
+app.get('/item/:id', async (req, res) => {
+    const {id} = req.params;
 
-//     const db = req.app.get('db');
-//     const art = await db.getItem(id);
-//     res.status(200).send(art);
+    const db = req.app.get('db');
+    const art = await db.getItem(id);
+    res.status(200).send(art);
     
-// })
+})
+app.get('/most-popular',  )
+
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {rejectUnauthorized: false}

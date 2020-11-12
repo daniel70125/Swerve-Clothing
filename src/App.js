@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.scss';
-// import Routes from './routes';
-// import Header from './Components/Header/Header';
+import Routes from './routes';
+import Header from './Components/Header/Header';
 import axios from 'axios';
-import Comingsoon from './Components/Comingsoon/Comingsoon';
+// import Comingsoon from './Components/Comingsoon/Comingsoon';
 
 class App extends Component {
   constructor(props){
@@ -20,9 +20,9 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        {/* <Header />
-        {Routes} */}
-        <Comingsoon />
+        <Header />
+        {Routes}
+        {/* <Comingsoon /> */}
       </div>
     );
   }

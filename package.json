@@ -29,6 +29,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-scroll-up-button": "^1.6.4",
+    "react-slideshow-image": "^3.3.1",
     "redux": "^4.0.5",
     "redux-promise-middleware": "^6.1.2",
     "scrollreveal": "^4.0.7",
