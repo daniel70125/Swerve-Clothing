@@ -28,7 +28,7 @@ class Contact extends Component {
                         <textarea id="subject" name="subject" placeholder="Write something.." style={{"height":"200px"}}></textarea>
                     </div>
                     {/* <Button variant="contained" color="primary" href="#contained-buttons">Submit</Button> */}
-                    <Button style={{"color":"white", "backgroundColor":"#09091c"}} variant="contained" endIcon={<SendIcon></SendIcon>}>Send</Button>
+                    <Button style={{"color":"white", "backgroundColor":"#09091c", "marginBottom":"50px"}} variant="contained" endIcon={<SendIcon></SendIcon>}>Send</Button>
                 </div>
             </div>
          );

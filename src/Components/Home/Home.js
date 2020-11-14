@@ -10,9 +10,17 @@ import { faGlobeAmericas, faPhone} from '@fortawesome/free-solid-svg-icons'
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            items: [{type:"Fiat", model:"500", color:"white"}, {type:"Chevy", model:"1200", color:"black"}]
+         }
     }
     render() { 
+        const popularItems = this.state.items.map((elm, index) => {
+            return <div style={{"height":"100px"}}>
+                <h1>{elm.type}</h1>
+        <h2>{elm.model}</h2>
+            </div>
+        })
         return ( 
             <div id='container'>
                 <div id='home-landing-box'>
@@ -47,6 +55,8 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                {/* Products Items */}
+                {popularItems}
             </div>
          );
     }

@@ -3,8 +3,8 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import './Slideshow.scss';
 import pic1 from '../../Pictures/IMG_2910.JPG'
-import pic2 from '../../Pictures/IMG_2911.JPG'
-import pic3 from '../../Pictures/IMG_2913.JPG'
+import pic2 from '../../Pictures/resized.jpg'
+import pic3 from '../../Pictures/resized2.jpg'
 
 const slideImages = [
   pic1,
