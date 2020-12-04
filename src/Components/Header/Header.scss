@@ -55,9 +55,9 @@ header {
     height:50px;
     transition:all 1s;
     overflow: hidden;
-    font-size: 30px;display: flex;
+    font-size: 30px;
+    display: flex;
     justify-content: space-evenly;
-    // border-top: 1px solid aliceblue;
     align-items: center;
 }
 #nav-links-2-closed {
@@ -67,7 +67,6 @@ header {
     font-size: 30px;
     font-size: 30px;display: flex;
     justify-content: space-evenly;
-    // border-top: 1px solid aliceblue;
     align-items: center;
 }
 #nav-links-2-open > a {

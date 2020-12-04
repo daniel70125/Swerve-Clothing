@@ -6,20 +6,20 @@ import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobeAmericas, faPhone} from '@fortawesome/free-solid-svg-icons'
+import PopularItems from '../PopularItems/PopularItems';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            items: [{type:"Fiat", model:"500", color:"white"}, {type:"Chevy", model:"1200", color:"black"}]
+            items: 
+            [{type:"'Chill Bear'", model:"500", color:"white", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgJ9C2C4bRLkn_Sw9hVjCG2Y3igmjHMUk_g&usqp=CAU"}, 
+            {type:"'Chill Bear'", model:"1200", color:"black", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgJ9C2C4bRLkn_Sw9hVjCG2Y3igmjHMUk_g&usqp=CAU"}]
          }
     }
     render() { 
         const popularItems = this.state.items.map((elm, index) => {
-            return <div style={{"height":"100px"}}>
-                <h1>{elm.type}</h1>
-        <h2>{elm.model}</h2>
-            </div>
+            return <PopularItems elm={elm}/>
         })
         return ( 
             <div id='container'>
@@ -56,7 +56,11 @@ class Home extends Component {
                     </div>
                 </div>
                 {/* Products Items */}
-                {popularItems}
+                <p style={{"textAlign":"center", "fontSize":"36px"}}>Latest Items</p>
+                <hr style={{"color":"orange"}}/>
+                <div id='home-latest-items'>
+                    {popularItems}
+                </div>
             </div>
          );
     }
