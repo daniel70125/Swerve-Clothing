@@ -3,6 +3,7 @@ import './App.scss';
 import Routes from './routes';
 import Header from './Components/Header/Header';
 import axios from 'axios';
+// import Footer from './Components/Footer/Footer';
 // import Comingsoon from './Components/Comingsoon/Comingsoon';
 
 class App extends Component {

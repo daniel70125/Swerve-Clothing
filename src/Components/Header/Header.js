@@ -25,6 +25,7 @@ class Header extends Component {
                 <div id='ex'>
                 <div className='cart-logo'>
                     <FontAwesomeIcon icon={faShoppingCart} />
+                    <span style={{"position":"absolute", "fontSize":"15px", "left":"39px", }}>3</span>
                 </div>
                 <div id='icon-cont'>
                     <Link to='/'>
@@ -36,7 +37,7 @@ class Header extends Component {
                         <FontAwesomeIcon icon={faHome} /> <br />
                         <span>Home</span>
                     </Link>
-                    <Link to='/portfolio/'>
+                    <Link to='/products/'>
                         <FontAwesomeIcon icon={faTshirt} /> <br />
                         <span>Products</span>
                     </Link>
@@ -66,7 +67,7 @@ class Header extends Component {
                     <Link to='/' onClick={this.close}>
                         <FontAwesomeIcon icon={faHome} />
                     </Link>
-                    <Link to='/portfolio/' onClick={this.close}>
+                    <Link to='/products/' onClick={this.close}>
                         <FontAwesomeIcon icon={faTshirt} />
                     </Link>
                     <Link to='/about/' onClick={this.close}>

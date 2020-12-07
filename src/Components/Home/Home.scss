@@ -105,7 +105,7 @@
     }
 }
 // Laptop
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1050px) {
     #container {
         margin-left:6vw;
             
@@ -116,6 +116,8 @@
                 width:20%;
             }
         }
-
     } 
+    #home-latest-items {
+        flex-direction: row;
+    }
 }

@@ -60,7 +60,7 @@ app.get('/item/:id', async (req, res) => {
     res.status(200).send(art);
     
 })
-app.get('/most-popular',  )
+app.get('/latestProducts/', ctrl.getLatest )
 
 massive({
     connectionString: CONNECTION_STRING,
