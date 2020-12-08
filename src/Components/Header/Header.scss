@@ -1,6 +1,6 @@
 $header-bg: #09091c;
 $header-red: #86113b;
-header {
+#header {
     min-height:6vh;
     background-color: $header-bg;
     position: sticky;
@@ -97,7 +97,7 @@ color:white;
             color:black;
         }
     }
-    header {
+    #header {
         position: fixed;
         top:0;
         left:0;
@@ -140,7 +140,7 @@ color:white;
     }
   }
   @media only screen and (min-width: 1200px) {
-    header {
+    #header {
         width:6vw
     }
 }

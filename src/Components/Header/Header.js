@@ -21,7 +21,7 @@ class Header extends Component {
     }
     render() { 
         return ( 
-            <header>
+            <header id='header'>
                 <div id='ex'>
                 <div className='cart-logo'>
                     <FontAwesomeIcon icon={faShoppingCart} />

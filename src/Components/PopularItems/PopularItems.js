@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import './PopularItems.scss';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 class PopularItems extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+
+         }
+         this.addToCart = this.addToCart.bind(this);
+    }
+    addToCart(){
+        axios.post('')
     }
     render() { 
-        console.log(this.props.elm);
         const {title, price, img} = this.props.elm
         return ( 
             <div id='popular-cont'>

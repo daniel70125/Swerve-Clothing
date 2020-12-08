@@ -49,7 +49,9 @@ app.post('/create-session', async (req, res) => {
   res.json({ id: session.id });
 });
 app.get('/session', (req, res) => {
-    req.session.user = {}
+    req.session.user = {
+      cart: []
+    }
     res.status(200).send(req.session)
 });
 app.get('/item/:id', async (req, res) => {
@@ -61,6 +63,26 @@ app.get('/item/:id', async (req, res) => {
     
 })
 app.get('/latestProducts/', ctrl.getLatest )
+app.post('/', (req, res) => {
+  const {price, title, img} = req.body;
+})
+app.get('/item/:id', async (req, res) => {
+  const {id} = req.params;
+
+  const db = req.app.get('db');
+  const art = await db.getItem(id);
+  res.status(200).send(art);
+  
+})
+app.get('/allProducts', ctrl.allProducts)
+app.get('/item/:id', async (req, res) => {
+  const {id} = req.params;
+console.log(id);
+  const db = req.app.get('db');
+  const item = await db.getItem(id);
+  res.status(200).send(item);
+  
+})
 
 massive({
     connectionString: CONNECTION_STRING,

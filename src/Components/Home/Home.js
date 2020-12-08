@@ -17,8 +17,8 @@ class Home extends Component {
             items: []
          }
     }
-    componentDidMount(){
-        axios.get('/latestProducts/')
+    async componentDidMount(){
+        await axios.get('/latestProducts/')
         .then(res => {
             // console.log(res.data)
             this.setState({

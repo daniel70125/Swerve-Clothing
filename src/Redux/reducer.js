@@ -1,12 +1,13 @@
 import axios from 'axios';
+
 const initialState = {
     user: {},
-    products: [],
+    product: [],
     loading: false
 }
 
 const GET_USER = 'GET_USER';
-const GET_PRODUCTS = 'GET_PRODUCTS';
+const GET_PRODUCT = 'GET_PRODUCT';
 
 export function getUser(user){
     return {
@@ -14,11 +15,11 @@ export function getUser(user){
         payload: user
     }
 }
-export function getArt(path){
-    const products = axios.get(path);
+export function getProduct(path){
+    const product = axios.get(path);
     return {
-        type:GET_PRODUCTS,
-        payload: products
+        type:GET_PRODUCT,
+        payload: product
     }
 }
 
@@ -27,11 +28,11 @@ export default function cookieReducer(state = initialState, action){
     switch(type){
         case GET_USER:
             return {...state, user:payload};
-        case GET_PRODUCTS + '_PENDING':
+        case GET_PRODUCT + '_PENDING':
             return {...state, loading:true}
-        case GET_PRODUCTS + '_FULFILLED':
-            return {...state, loading:false, art:payload}
-        case GET_PRODUCTS + '_REJECTED':
+        case GET_PRODUCT + '_FULFILLED':
+            return {...state, loading:false, product:payload}
+        case GET_PRODUCT + '_REJECTED':
             return initialState
         default:
             return state;

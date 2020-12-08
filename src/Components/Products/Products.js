@@ -21,7 +21,7 @@ class Products extends Component {
     //  this.getPortraits = this.getPortraits.bind(this);
   }
   async componentDidMount(){
-    await axios.get('/latestProducts/')
+    await axios.get('/allProducts')
     .then(res => {
       this.setState({
         items: res.data
@@ -29,6 +29,7 @@ class Products extends Component {
     console.log(res.data)
     })
     .catch(err => console.log(err));
+
     let start = 0;
     for (let index = 0; index < this.state.items.length; index++) {
       console.log(start);
@@ -43,13 +44,13 @@ class Products extends Component {
   //     })
   //   })
   // }
-  // async getAllArt(){
-  //   await axios.get('/items').then(res => {
-  //     this.setState({
-  //       items: res.data
-  //     })
-  //   })
-  // }
+  async getAllProducts(){
+    await axios.get('/allProducts').then(res => {
+      this.setState({
+        items: res.data
+      })
+    })
+  }
   // async getPortraits(){
   //   await axios.get('/items/portraits').then(res => {
   //     this.setState({
@@ -58,18 +59,18 @@ class Products extends Component {
   //   })
   // }
   render() { 
-    // const item = this.state.items.map((elm, index) => {
-    //   return (
+    const item = this.state.items.map((elm, index) => {
+      return (
             
-    //         <Link className={`linksSR${index}`} to={`/item/${elm.id}`}>
-    //           <Item key={index} id={index} elm={elm} />
-    //           <div id='modal'>
-    //             <h2>{elm.title}</h2>
-    //             <span>{elm.description}</span>
-    //           </div>
-    //         </Link>
-    //   )
-    // })
+            <Link className={`linksSR${index}`} to={`/item/${elm.id}`}>
+              <Item key={index} id={index} elm={elm} />
+              <div id='modal'>
+                <h2>{elm.title}</h2>
+                <span>{elm.description}</span>
+              </div>
+            </Link>
+      )
+    })
     return ( 
       <div id='portfolio-cont'>
         <div>
@@ -90,11 +91,11 @@ class Products extends Component {
           </div>
           <div className="tab">
             <button onClick={this.getAllArt} className="tablinks">All</button>
-            <button onClick={this.getPortraits} className="tablinks">Potraits</button>
-            <button onClick={this.getDrawings} className="tablinks">Drawings</button>
+            <button onClick={this.getPortraits} className="tablinks">Clothing</button>
+            <button onClick={this.getDrawings} className="tablinks">Other</button>
           </div>
           <div id='item-cont'>
-            {/* {item} */}
+            {item}
           </div>
     </div>
      );

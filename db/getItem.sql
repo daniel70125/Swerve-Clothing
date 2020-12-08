@@ -1,0 +1,1 @@
+select * from swerveitems where id = $1;
