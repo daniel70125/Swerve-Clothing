@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft, faCircle} from '@fortawesome/free-solid-svg-icons'
 import {connect} from 'react-redux';
 import {getProduct} from '../../Redux/reducer';
+import axios from 'axios';
+import Loading from '../Loading/Loading';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,26 +56,27 @@ const useStyles = makeStyles((theme) => ({
 
 function SimpleTabs(props) {
   const classes = useStyles();
+  const [product, productItem] = React.useState({});
   const [value, setValue] = React.useState(0);
   const [img, setSrc] = React.useState('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xr-white-select-201809?wid=441&hei=529&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1551226036668')
   const images = [];
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(props)
-  useEffect(() => {
-    props.getProduct(props.match.url)
-  });
+  useEffect( () => {
+    axios.get(props.match.url).then(res => console.log(productItem(res.data[0])))
+  }, []);
+  console.log(product.title)
   return (
       <div id='item-cont'>
         <div id='item-box-1-cont'>
             <div className='item-box-1'>
-                <img src={img} alt={images}/>
+                <img src={product.img} alt={images}/> <br />
                 <FontAwesomeIcon className='arrows' icon={faArrowLeft} />
                 <FontAwesomeIcon className='arrows' icon={faArrowRight} />
             </div>
             <div className='item-box-1'>
-                <h1 id='' style={{"textDecoration":"underline"}}>Self-Defense Keychain</h1>
+  <h1 id='' style={{"textDecoration":"underline"}}>{product.title}</h1>
                 <span style={{"font-size":"30px"}}>$24.99</span>
                 <div id='item-info'>
                     <div className={classes.root}>
