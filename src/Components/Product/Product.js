@@ -76,7 +76,7 @@ function SimpleTabs(props) {
                 <FontAwesomeIcon className='arrows' icon={faArrowLeft} />
                 <FontAwesomeIcon className='arrows' icon={faArrowRight} />
             </div>
-            <div  className='item-box-1'>
+            <div style={{"marginLeft":"6vw"}} className='item-box-1'>
               <h1 id='' style={{"textDecoration":"underline"}}>{product.title}</h1>
                 <span style={{"font-size":"30px"}}>$24.99</span>
                 <div id='item-info'>
