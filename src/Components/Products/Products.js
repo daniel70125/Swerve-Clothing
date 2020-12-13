@@ -3,10 +3,8 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import ScrollUpButton from 'react-scroll-up-button';
 import {Link} from 'react-router-dom';
 import './Products.scss';
-import Item from '../Item/Item';
-// import Fade from '@material-ui/core/Fade';
 import ScrollReveal from 'scrollreveal'
-
+import Card from '../Card/Card';
 // import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
@@ -61,13 +59,8 @@ class Products extends Component {
   render() { 
     const item = this.state.items.map((elm, index) => {
       return (
-            
             <Link className={`linksSR${index}`} to={`/item/${elm.id}`}>
-              <Item key={index} id={index} elm={elm} />
-              <div id='modal'>
-                <h2>{elm.title}</h2>
-                <span>{elm.description}</span>
-              </div>
+              <Card key={index} id={index} elm={elm} />
             </Link>
       )
     })

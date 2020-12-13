@@ -75,8 +75,8 @@ function SimpleTabs(props) {
                 <FontAwesomeIcon className='arrows' icon={faArrowLeft} />
                 <FontAwesomeIcon className='arrows' icon={faArrowRight} />
             </div>
-            <div className='item-box-1'>
-  <h1 id='' style={{"textDecoration":"underline"}}>{product.title}</h1>
+            <div  className='item-box-1'>
+              <h1 id='' style={{"textDecoration":"underline"}}>{product.title}</h1>
                 <span style={{"font-size":"30px"}}>$24.99</span>
                 <div id='item-info'>
                     <div className={classes.root}>
@@ -118,8 +118,8 @@ function SimpleTabs(props) {
                     </div> 
                 </div>
                 <div style={{"height":"50px"}}>
-                  <span style={{"color":"hotpink", "fontSize":"24px"}}>Fast U.S. Shipping</span> <br />
-                  <span style={{"color":"hotpink", "fontSize":"24px"}}>100% Happiness Guarantee</span>
+                  <span style={{"color":"#09091c", "fontSize":"24px"}}>Fast U.S. Shipping</span> <br />
+                  <span style={{"color":"#09091c", "fontSize":"24px", "marginTop":"10px"}}>100% Happiness Guarantee</span>
                 </div>
                 <div id='item-colors'>
                     <FontAwesomeIcon className='colors' icon={faCircle} style={{"color":"red"}} />
