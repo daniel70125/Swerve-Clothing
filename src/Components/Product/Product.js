@@ -58,6 +58,7 @@ function SimpleTabs(props) {
   const classes = useStyles();
   const [product, productItem] = React.useState({});
   const [value, setValue] = React.useState(0);
+  const [productColor, setProductColor] = React.useState("pink");
   const [img, setSrc] = React.useState('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xr-white-select-201809?wid=441&hei=529&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1551226036668')
   const images = [];
   const handleChange = (event, newValue) => {
@@ -65,8 +66,8 @@ function SimpleTabs(props) {
   };
   useEffect( () => {
     axios.get(props.match.url).then(res => console.log(productItem(res.data[0])))
-  }, []);
-  console.log(product.title)
+    console.log(productColor)
+  }, [productColor]);
   return (
       <div id='item-cont'>
         <div id='item-box-1-cont'>
@@ -122,9 +123,11 @@ function SimpleTabs(props) {
                   <span style={{"color":"#09091c", "fontSize":"24px", "marginTop":"10px"}}>100% Happiness Guarantee</span>
                 </div>
                 <div id='item-colors'>
-                    <FontAwesomeIcon className='colors' icon={faCircle} style={{"color":"red"}} />
-                    <FontAwesomeIcon className='colors' icon={faCircle} style={{"color":"blue"}} />
-                    <FontAwesomeIcon className='colors' icon={faCircle} style={{"color":"pink"}} />
+                    <FontAwesomeIcon onClick={() => setProductColor('red')} className='colors' icon={faCircle} style={{"color":"red"}} />
+                    <FontAwesomeIcon onClick={() => setProductColor('blue')} className='colors' icon={faCircle} style={{"color":"blue"}} />
+                    <FontAwesomeIcon onClick={() => setProductColor('pink')} className='colors' icon={faCircle} style={{"color":"pink"}} />
+                    <FontAwesomeIcon onClick={() => setProductColor('purple')} className='colors' icon={faCircle} style={{"color":"purple"}} />
+
                 </div>
             </div>
         </div>
