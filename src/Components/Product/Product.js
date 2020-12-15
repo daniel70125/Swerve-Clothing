@@ -64,21 +64,23 @@ function SimpleTabs(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  useEffect( () => {
-    axios.get(props.match.url).then(res => console.log(productItem(res.data[0])))
-    console.log(productColor)
+  useEffect(() => {
+    // axios.get(props.match.url).then(res => console.log(productItem(res.data[0])))
+    props.getProduct(props.match.url)
+    console.log(props)
   }, [productColor]);
   return (
+      // props.loading = false ? "true":"false"
       <div id='item-cont'>
         <div id='item-box-1-cont'>
-            <div className='item-box-1'>
+            <div style={{"textAlign":"center"}}  className='item-box-1'>
                 <img src={product.img} alt={images}/> <br />
                 <FontAwesomeIcon className='arrows' icon={faArrowLeft} />
                 <FontAwesomeIcon className='arrows' icon={faArrowRight} />
             </div>
-            <div style={{"marginLeft":"6vw"}} className='item-box-1'>
+            <div className='item-box-1'>
               <h1 id='' style={{"textDecoration":"underline"}}>{product.title}</h1>
-                <span style={{"font-size":"30px"}}>$24.99</span>
+                <span style={{"font-size":"30px", "position":"absolute", "left":"0"}}>$24.99</span>
                 <div id='item-info'>
                     <div className={classes.root}>
                     <AppBar style={{"backgroundColor":"#09091c"}} position="static">
@@ -122,12 +124,17 @@ function SimpleTabs(props) {
                   <span style={{"color":"#09091c", "fontSize":"24px"}}>Fast U.S. Shipping</span> <br />
                   <span style={{"color":"#09091c", "fontSize":"24px", "marginTop":"10px"}}>100% Happiness Guarantee</span>
                 </div>
-                <div id='item-colors'>
-                    <FontAwesomeIcon onClick={() => setProductColor('red')} className='colors' icon={faCircle} style={{"color":"red"}} />
-                    <FontAwesomeIcon onClick={() => setProductColor('blue')} className='colors' icon={faCircle} style={{"color":"blue"}} />
-                    <FontAwesomeIcon onClick={() => setProductColor('pink')} className='colors' icon={faCircle} style={{"color":"pink"}} />
-                    <FontAwesomeIcon onClick={() => setProductColor('purple')} className='colors' icon={faCircle} style={{"color":"purple"}} />
-
+                <div id='product-options'>
+                    <span>Color: </span>
+                    <select id="cars" name="cars">
+                      <option value="red">Red</option>
+                      <option value="orange">Orange</option>
+                      <option value="light-grey">Light Grey</option>
+                      <option value="blue">Blue</option>
+                      <option value="purple">Purple</option>
+                      <option value="black">Black</option>
+                      <option value="white">White</option>
+                    </select>
                 </div>
             </div>
         </div>

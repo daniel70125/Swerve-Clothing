@@ -1,14 +1,17 @@
 #item-cont {
     min-height:90vh;
-    margin-left:6vw;
 }
 #item-box-1-cont {
     display: flex;
     flex-direction: column;
 }
+#product-options {
+    height:10vh;
+    width:100%;
+    border:1px solid red;
+}
 .item-box-1 {
     width:100%;
-    text-align:center;
 }
 .arrows {
     font-size: 40px;
@@ -16,6 +19,7 @@
 }
 .item-box-1 {
     img {
+        box-shadow: 0px 0px 12px 2px grey;
         width: 100%;
         min-height: 40vh;
         max-height: 45vh;
@@ -34,12 +38,6 @@
     background-color: #80808078 !important;
     margin-bottom: 20px;
 }
-#item-colors {
-    font-size: 32px;
-    text-align: left;
-    padding-left: 15px;
-    padding: 15px;
-}
 .colors {
     margin:5px 5px;
 }
@@ -50,6 +48,7 @@
     }
     #item-box-1-cont {
         flex-direction: row;
+        margin-left:6vw;
     }
     
     .item-box-1 {
@@ -58,23 +57,16 @@
             margin:20px 0 5px 0;
         }
     }
-    .item-box-1 {
-        span {
-            position: absolute;
-            left:0;
-        }
-    }
-    #item-colors {
-        padding: 15px 0;
-    }
+    
     #item-info {
         margin-top: 60px;
     }
     .item-box-1 {
         img {
-            width: 80%;
-            min-height: 60vh;
-            max-height: 60vh;
+            margin:auto;
+            width: 90%;
+            min-height: 80vh;
+            max-height: 80vh;
         }
     }
 }
