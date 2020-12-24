@@ -1,11 +1,12 @@
 $header-bg: #09091c;
 $header-red: #86113b;
 #header {
-    min-height:4vh;
+    min-height:5vh;
     background-color: $header-bg;
     position: sticky;
     top:0px;
     z-index: 5;
+    transition: all 0.3s;
     // color:pink;
 }
 #ex {
@@ -13,6 +14,7 @@ $header-red: #86113b;
     display: flex;
     position: relative;
     align-items: center;
+    min-height:5vh;
     .cart-logo {
         color: white;
         font-size: 24px;
@@ -40,6 +42,7 @@ $header-red: #86113b;
     a {
         display: none;
         color:white;
+        transition: all 0.5s;
     }
 }
 
@@ -75,9 +78,6 @@ color:white;
 #nav-links-2-closed > a {
 color:white;
 }
-#nav-links > a:hover {
-    color:black;
-}
 #social-icons {
     display: none ;
 }
@@ -96,6 +96,9 @@ color:white;
         a:hover {
             color:black;
         }
+    }
+    #nav-links > a:hover {
+        transform: translateX(10px);
     }
     #header {
         position: fixed;
@@ -129,7 +132,7 @@ color:white;
             text-decoration: none;
         }
         span {
-            font-size:18px;
+            font-size:16px;
             position: relative;
             top: -16px;
         }

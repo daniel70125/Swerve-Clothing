@@ -3,12 +3,13 @@ import './Product.scss';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faArrowLeft, faCircle} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft, faCircle, faPlusSquare, faMinusSquare} from '@fortawesome/free-solid-svg-icons'
 import {connect} from 'react-redux';
 import {getProduct} from '../../Redux/reducer';
 import axios from 'axios';
@@ -58,6 +59,7 @@ function SimpleTabs(props) {
   const classes = useStyles();
   const [product, productItem] = React.useState({});
   const [value, setValue] = React.useState(0);
+  const [quantity, setQuantity] = React.useState(0);
   const [productColor, setProductColor] = React.useState("pink");
   const [img, setSrc] = React.useState('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xr-white-select-201809?wid=441&hei=529&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1551226036668')
   const images = [];
@@ -67,23 +69,27 @@ function SimpleTabs(props) {
   useEffect(() => {
     // axios.get(props.match.url).then(res => console.log(productItem(res.data[0])))
     props.getProduct(props.match.url)
-    console.log(props)
+    productItem(props.product)
   }, [productColor]);
   return (
-      // props.loading = false ? "true":"false"
+      props.loading === true ? <Loading /> :
       <div id='item-cont'>
         <div id='item-box-1-cont'>
             <div style={{"textAlign":"center"}}  className='item-box-1'>
-                <img src={product.img} alt={images}/> <br />
+                <img src={props.product.img} alt={props.product.title}/> <br />
                 <FontAwesomeIcon className='arrows' icon={faArrowLeft} />
                 <FontAwesomeIcon className='arrows' icon={faArrowRight} />
             </div>
             <div className='item-box-1'>
-              <h1 id='' style={{"textDecoration":"underline"}}>{product.title}</h1>
-                <span style={{"font-size":"30px", "position":"absolute", "left":"0"}}>$24.99</span>
+              <div style={{"textAlign":"center", "padding":"10px"}}>
+                <h1 id='' style={{"textAlign":"center"}}>{props.product.title}</h1>
+                <span style={{"font-size":"30px"}}>$24.99</span>
+              </div>
+                
+                {/* <Button style={{"width":"100%", "height":"5vh", "margin":"15px 0"}}variant="contained" color="primary" disableElevation>Add To Cart</Button> */}
                 <div id='item-info'>
                     <div className={classes.root}>
-                    <AppBar style={{"backgroundColor":"#09091c"}} position="static">
+                    <AppBar style={{"backgroundColor":"grey"}} position="static">
                         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                         <Tab label="Description" {...a11yProps(0)} />
                         <Tab label="Comes With" {...a11yProps(1)} />
@@ -125,16 +131,36 @@ function SimpleTabs(props) {
                   <span style={{"color":"#09091c", "fontSize":"24px", "marginTop":"10px"}}>100% Happiness Guarantee</span>
                 </div>
                 <div id='product-options'>
+                  <div style={{"width":"100%"}}>
                     <span>Color: </span>
-                    <select id="cars" name="cars">
-                      <option value="red">Red</option>
-                      <option value="orange">Orange</option>
-                      <option value="light-grey">Light Grey</option>
-                      <option value="blue">Blue</option>
-                      <option value="purple">Purple</option>
-                      <option value="black">Black</option>
-                      <option value="white">White</option>
+                      <select id="color-picker" name="color-picker">
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                        <option value="light-grey">Light Grey</option>
+                        <option value="blue">Blue</option>
+                        <option value="purple">Purple</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                      </select>
+                  </div>
+                  <div style={{"width":"100%"}}>
+                  <span>Size: </span>
+                    <select id="size-picker" name="size-picker">
+                      <option value="small">Small</option>
+                      <option value="medium">Medium</option>
+                      <option value="large">Large</option>
+                      <option value="xlarge">X-Large</option>
+                      <option value="xxlarge">XX-Large</option>
                     </select>
+                  </div>
+                  <div style={{"width":"100%", "fontSize":"22px"}}>
+                    <span>Quantity: </span> <br />
+                    <FontAwesomeIcon onClick={() => setQuantity(quantity - 1)} className='faMinusSquare' icon={faMinusSquare} />
+                      <span style={{"margin":"0px 10px"}}>{quantity}</span>
+                    <FontAwesomeIcon onClick={() => setQuantity(quantity + 1)} className='faPlusSquare' icon={faPlusSquare} />
+                  </div>
+                  <Button style={{"width":"50%", "height":"5vh", "margin":"15px auto"}}variant="contained" color="primary" disableElevation>Add To Cart</Button>
+
                 </div>
             </div>
         </div>

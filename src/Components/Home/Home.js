@@ -14,18 +14,38 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            items: []
+            items: [{"title":"Cool 1","price":"25.00","description":"It's Cool", "img":"https://cdn.pixabay.com/photo/2016/10/27/02/06/model-1773191_960_720.jpg"},
+             {"title":"Cool 2","price":"25.00","description":"It's Cool", "img":"https://cdn.pixabay.com/photo/2016/10/27/02/06/model-1773191_960_720.jpg"},
+              {"title":"Cool 3","price":"25.00", "description":"It's Cool","img":"https://cdn.pixabay.com/photo/2016/10/27/02/06/model-1773191_960_720.jpg"}]
          }
     }
     async componentDidMount(){
-        await axios.get('/latestProducts/')
-        .then(res => {
-            // console.log(res.data)
-            this.setState({
-                items: res.data
-            })
-        })
-        .catch()
+        // await axios.get('/latestProducts/')
+        // .then(res => {
+        //     console.log(res.data)
+        //     this.setState({
+        //         items: res.data
+        //     })
+        // })
+        // .catch()
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        window.addEventListener('load', (event) => {
+            setTimeout(() => {
+                modal.style.display = "block";
+                document.getElementById('header').style.zIndex = 0;
+            }, 3000);
+        span.onclick = function() {
+            modal.style.display = "none";
+            document.getElementById('header').style.zIndex = 5;
+            }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.getElementById('header').style.zIndex = 5;
+            }
+            }
+          });
     }
     render() { 
         const popularItems = this.state.items.map((elm, index) => {
@@ -35,7 +55,8 @@ class Home extends Component {
             <div id='container'>
                 <div id='home-landing-box'>
                     <Fade in='true' timeout={3000}>
-                        <h1>Swerve Nation</h1>
+                        {/* <h1>Swerve Nation</h1> */}
+                        <h1>Company Name Here</h1>
                     </Fade>
                     <hr style={{"color":""}}/>
                     <Fade in='true' timeout={7000}>
@@ -75,6 +96,22 @@ class Home extends Component {
                 <div id='home-latest-items'>
                     {popularItems}
                 </div>
+
+                <div id="myModal" className="modal">
+                    <div className="modal-content">
+                        <span className="close">&times;</span>
+                        <div id='modal-box-left'>
+                                
+                        </div>
+                        <div id='modal-box-right'>
+                                <p>Hello</p>
+                                <p>Sign up to be the first to hear about exclusive deals, special offers and upcoming collections</p>
+                                <input type='text' placeholder='Email' />
+                                <Button className='modal-btn' variant="contained" color="primary" disableElevation>Submit</Button>
+                        </div>
+                    </div>
+                </div>
+
                 <Footer />
             </div>
          );

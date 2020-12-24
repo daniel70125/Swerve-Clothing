@@ -7,7 +7,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('https://dwrightportfolio.000webhostapp.com/Swerve/swerve-backdrop.jpeg');
+    // background-image: url('https://dwrightportfolio.000webhostapp.com/Swerve/swerve-backdrop.jpeg');
+    background-image: url('https://wallpaperaccess.com/full/318703.jpg');
 }
 #portfolio-nav {
     align-items: center;
@@ -40,11 +41,10 @@
 }
 .tab {
     overflow: hidden;
-    border: 1px solid #ccc;
+    text-align: center;
     background-color: #09091c;
     button {
         background-color: inherit;
-        float: left;
         border: none;
         outline: none;
         cursor: pointer;
@@ -52,7 +52,6 @@
         transition: 0.3s;
         color:white;
         font-size: 17px;
-        border-left: 1px solid white;
       }
       
   }

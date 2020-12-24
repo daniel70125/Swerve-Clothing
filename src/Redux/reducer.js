@@ -31,7 +31,7 @@ export default function cookieReducer(state = initialState, action){
         case GET_PRODUCT + '_PENDING':
             return {...state, loading:true}
         case GET_PRODUCT + '_FULFILLED':
-            return {...state, loading:false, product:payload.data}
+            return {...state, loading:false, product:payload.data[0]}
         case GET_PRODUCT + '_REJECTED':
             return initialState
         default:

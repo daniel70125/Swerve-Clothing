@@ -7,7 +7,7 @@ class Loading extends Component {
     }
     render() { 
         return ( 
-            <div className='main-cont'>
+            <div style={{"textAlign":"center", "fontSize":"24px"}} className='main-cont'>
                 <img style={{"opacity": "0.5"}} src='https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif' alt='loading icon'/>
                 <h4>Getting the item for you ! ...</h4>
             </div>
