@@ -4,7 +4,6 @@ import {  faHome, faTshirt, faEnvelope, faAddressCard, faBars, faTimes, faShoppi
 import {  faInstagram, faTwitter  } from '@fortawesome/free-brands-svg-icons';
 import {Link} from 'react-router-dom';
 import './Header.scss';
-import Logo from '../../Pictures/swerve-logo.png'
 
 class Header extends Component {
     constructor(props) {
@@ -29,7 +28,8 @@ class Header extends Component {
                 </div>
                 <div id='icon-cont'>
                     <Link to='/'>
-                        <img style={{"width":"100%"}} src={Logo} alt='swerve-nation-logo' />
+                        {/* <img style={{"width":"100%"}} src={Logo} alt='swerve-nation-logo' /> */}
+                        <span>Logo</span>
                     </Link>
                 </div>
                 <div id='nav-links'>

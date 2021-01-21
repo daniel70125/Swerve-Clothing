@@ -1,1 +1,1 @@
-select * from swerveitems;
+select * from clothing;

@@ -42,7 +42,7 @@
 .tab {
     overflow: hidden;
     text-align: center;
-    background-color: #09091c;
+    background-color: grey;
     button {
         background-color: inherit;
         border: none;
@@ -111,7 +111,7 @@
     #item-cont {
         flex-direction: row;
         a {
-            width: 30%;
+            width: 25%;
         }
     }
 }

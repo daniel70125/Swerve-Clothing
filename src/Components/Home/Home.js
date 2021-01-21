@@ -5,18 +5,21 @@ import Button from '@material-ui/core/Button';
 import Fade from '@material-ui/core/Fade';
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobeAmericas, faPhone} from '@fortawesome/free-solid-svg-icons'
 import PopularItems from '../PopularItems/PopularItems';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
+import Delivery from '../../Pictures/delivery.png'; 
+import Guarantee from '../../Pictures/guarantee.png'; 
+import Support from '../../Pictures/support.png'; 
+// import GMap from '../GoogleMap/GoogleMap';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            items: [{"title":"Cool 1","price":"25.00","description":"It's Cool", "img":"https://cdn.pixabay.com/photo/2016/10/27/02/06/model-1773191_960_720.jpg"},
-             {"title":"Cool 2","price":"25.00","description":"It's Cool", "img":"https://cdn.pixabay.com/photo/2016/10/27/02/06/model-1773191_960_720.jpg"},
-              {"title":"Cool 3","price":"25.00", "description":"It's Cool","img":"https://cdn.pixabay.com/photo/2016/10/27/02/06/model-1773191_960_720.jpg"}]
+            items: [{"title":"Jacket 1","id":"1","price":"15.00","description":"It's Cool", "img":"https://cdn.shopify.com/s/files/1/0352/5633/products/Cossack_Style_Wind_Breaker_-_Navy_Moleskin-16_2000x.jpg?v=1581882795"},
+             {"title":"Dress 1","id":"2","price":"25.00","description":"It's Cool", "img":"https://freepngimg.com/download/dress/4-2-dress-png-hd.png"},
+              {"title":"Sweater 1","id":"3","price":"28.00", "description":"It's Cool","img":"https://uploads-ssl.webflow.com/5d556af3fe21d65f602dca94/5ef0a2ef51ef17a783edf2d6_Order%20%23538882%20%7C%20jamie%40somethingnavy.com%202.jpg"}]
          }
     }
     async componentDidMount(){
@@ -49,7 +52,9 @@ class Home extends Component {
     }
     render() { 
         const popularItems = this.state.items.map((elm, index) => {
-            return <PopularItems key={index} elm={elm}/>
+            return <Link className='popular-link' to={`/item/${elm.id}`}>
+            <PopularItems key={index} elm={elm}/>
+            </Link>
         })
         return ( 
             <div id='container'>
@@ -65,31 +70,26 @@ class Home extends Component {
                         </Link>
                     </Fade>
                 </div>
-                <div id='main-quote-div'>
-                    <p className="home-quote">Swerve Nation is a worldwide favorite!</p>
+                <div id='home-qoute'>
+                <div className='quote-box'>
+                        <img src={Guarantee} />
+                        <h5>Money Back Gurantee</h5>
+                    </div>
+                    <div className='quote-box'>
+                        <img src={Delivery} />
+                        <h5>Free Shipping</h5>
+                    </div>
+                    <div className='quote-box'>
+                        <img src={Support} />
+                        <h5>24/7 Support</h5>
+                    </div>
                 </div>
+                {/* <div id='main-quote-div'>
+                    <p className="home-quote">Swerve Nation is a worldwide favorite!</p>
+                </div> */}
                 
                 <Slideshow />
-                <div id='home-qoute'>
-                    <div className='quote-cont'>
-                        <div className='home-icon-intro1' >
-                        <FontAwesomeIcon style={{"color":"darkolivegreen"}} className='worldIcon' icon={faGlobeAmericas} />
-                        </div>
-                        <div className='home-icon-intro2'>
-                            <h5>Worldwide Delivery</h5>
-                            <span>We ship all over the U.S.A! All orders are processed at time of order.</span>
-                        </div>
-                    </div>
-                    <div className='quote-cont'>
-                        <div className='home-icon-intro1'>
-                        <FontAwesomeIcon icon={faPhone} />
-                        </div>
-                        <div className='home-icon-intro2'>
-                        <h5>24/7 Customer Services</h5>
-                            <span>Our dedicated support team guarantee to always support you - our beloved customer anytime of the day.</span>
-                        </div>
-                    </div>
-                </div>
+                
                 {/* Products Items */}
                 <p style={{"textAlign":"center", "fontSize":"36px", "marginBottom":"5px", "marginTop":"35px"}}>Latest Items</p>
                 <hr style={{"color":"orange", "width":"20%", "border":"1px solid orange", "marginBottom":"80px"}}/>

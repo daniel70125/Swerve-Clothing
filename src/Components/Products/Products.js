@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import Typography from '@material-ui/core/Typography';
 import ScrollUpButton from 'react-scroll-up-button';
 import {Link} from 'react-router-dom';
 import './Products.scss';
@@ -59,7 +60,7 @@ class Products extends Component {
   render() { 
     const item = this.state.items.map((elm, index) => {
       return (
-            <Link className={`linksSR${index}`} to={`/item/${elm.id}`}>
+            <Link style={{"textDecoration":"none"}}className={`linksSR${index}`} to={`/item/${elm.id}`}>
               <Card key={index} id={index} elm={elm} />
             </Link>
       )
@@ -71,14 +72,12 @@ class Products extends Component {
         </div>
         <div id='portfolio-header'>
           <div id='header-text'>
-              <h2>Swerve Items</h2>
+              <h2>Shop</h2>
               <Breadcrumbs aria-label="breadcrumb">
                 <Link style={{"color":"white"}} to="/">
                     Home
                 </Link>
-                <Link style={{"textDecoration":"underline", "color":"cornflowerblue", "fontWeight":"900"}} to="/portfolio/" aria-current="page">
-                    Products
-                </Link>
+                <Typography style={{"color":"white"}}>Products</Typography>
               </Breadcrumbs>
           </div>
           </div>

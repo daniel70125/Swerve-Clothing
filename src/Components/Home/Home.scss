@@ -1,11 +1,5 @@
-.home-quote {
-    font-family: 'Condiment', cursive;
-    text-align: center;
-    font-size: 27px;
-    margin: 0;
-    color: black;
-    text-decoration: underline;
-}
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap');
+
 #main-quote-div {
     margin:15px 0;
 }
@@ -45,31 +39,21 @@
 #home-qoute {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
-        .quote-cont {
-            height:20vh;
-            display: flex;
-            padding:10px;
-                svg {
-                    font-size: 70px;
-                }
-                .home-icon-intro1 {
-                    width:30%;
-                    position: relative;
-                    top:5vh;
-                    left:10px;
-                }
-                .home-icon-intro2 {
-                    width:70%;
-                        h5 {
-                            font-weight: 800;
-                            text-decoration: underline;
-                        }
-                        span {
-                            font-size:18px;
-                        }
-                }
+    margin: 15px auto;
+    .quote-box {
+        width: 70%;
+        display: flex;
+        margin: 10px auto;
+        height: 20vh;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fafafa;
+        img {
+            font-size: 14px;
         }
+    }
 }
 .worldIcon {
     animation-duration: 5s;
@@ -85,7 +69,7 @@
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 17; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -100,7 +84,7 @@
     background-color: #fefefe;
     display: flex;
     flex-direction: column;
-    margin: 8% auto; /* 15% from the top and centered */
+    margin: 15% auto 0 auto; /* 15% from the top and centered */
     height:70vh;
     border: 1px solid #888;
     width: 90%; /* Could be more or less, depending on screen size */
@@ -110,7 +94,9 @@
   .close {
     color: #aaa;
     position: fixed;
-    font-size: 28px;
+    font-size: 42px;
+    position:absolute;
+    left:10vw;
     font-weight: bold;
   }
   
@@ -149,6 +135,14 @@
         margin-top:1vh;
     }
   }
+  .popular-link {
+      width:100%;
+      text-decoration: none;
+  }
+  .popular-link:hover {
+      transition: all 0.5s;
+      box-shadow:0px 0px 2px 3px lightgrey;
+  }
 // IPAD
 @media only screen and (min-width: 768px) {
     #container {
@@ -166,11 +160,7 @@
     #home-qoute {
         flex-direction: row;
         padding: 5px;
-        // border: 2px ridge red;
-            .quote-cont {
-                width:50%;
-                
-            }
+        
     }
 }
 // Laptop
@@ -181,6 +171,7 @@
     }
     .modal-content {
         flex-direction: row;
+        margin: 8% auto; /* 15% from the top and centered */
     }
     #modal-box-right {
         p:nth-child(2) {
@@ -196,14 +187,14 @@
         }
       }
     #home-qoute{
-        .quote-cont {
-            .home-icon-intro1 {
-                width:20%;
-            }
-        }
+      .quote-box {
+          margin:10px;
+      }  
     } 
     #home-latest-items {
         flex-direction: row;
+        justify-content: space-around;
+        margin-bottom:15px;
     }
     
     #modal-box-left {
@@ -218,5 +209,8 @@
       padding:5px;
       text-align:center;
       height:100%;
+    }
+    .close {
+        left:90vw;
     }
 }
