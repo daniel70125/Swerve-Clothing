@@ -1,0 +1,21 @@
+.each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 650px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .each-slide span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
+  }
+  @media only screen and (min-width: 1200px) {
+    .each-slide > div {
+      background-size: 100%;
+    }
+  }

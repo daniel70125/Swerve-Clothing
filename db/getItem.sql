@@ -1,1 +1,1 @@
-select * from swerveitems where id = $1;
+select * from Clothing where id = $1;
