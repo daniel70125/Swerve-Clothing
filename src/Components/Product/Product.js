@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/Button';
 import {getProduct} from '../../Redux/reducer';
 import Loading from '../Loading/Loading';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -10,7 +11,9 @@ import './Product.scss';
 class Product extends Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = { 
+      items: 1
+     }
   }
    async componentDidMount(){
     await this.props.getProduct(this.props.match.url)
@@ -36,12 +39,26 @@ class Product extends Component {
             <img src={this.props.product.img} />
         </div>
         <div id='product-box2'>
-            <div>
-              <h3>{this.props.product.title}</h3>
+            <div id='box1'>
+              <h3 style={{"fontSize":"32px", "margin":"0"}}>{this.props.product.title}</h3>
               <p>{this.props.product.price}</p>
             </div>
-            <div>Div 2</div>
-            <div>Div 3</div>
+            <div id='box2'><p>{this.props.product.description}</p></div>
+            <div id='box3'>
+              <div id='product-btns'>
+                <div id='product-counter'>
+                  <div onClick={() => {this.setState({items: this.state.items - 1})}} style={{"margin":"5px 0px 0px 15px", "height":"100%","width":"25px", "cursor":"pointer"}}>-</div>
+                  <div style={{"margin":"5px","height":"100%"}}>{this.state.items}</div>
+                  <div onClick={() => {this.setState({items: this.state.items + 1})}} style={{"margin":"5px 10px 0px 0px","height":"100%", "width":"25px", "cursor":"pointer"}}>+</div>
+                </div>
+                <Link to='/products/'>
+                  <Button variant="contained" color="primary" disableElevation>Buy Now</Button>
+                </Link>
+                <Link to='/products/'>
+                  <Button variant="contained" color="primary" disableElevation>Add To Cart</Button>
+                </Link>
+              </div>
+            </div>
         </div>
         </div>
         {/* End of container ! */}

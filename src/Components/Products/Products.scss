@@ -79,6 +79,7 @@
     }
 }
 #item-cont {
+    margin-top: 5px;
     min-height:65vh;
     display: flex;
     flex-direction: column;
@@ -86,6 +87,7 @@
     flex-wrap: wrap;
     background-size: cover;
     a {
+        margin: auto;
         width:90%;
         position: relative;
         // margin: 10px auto 10px auto;
@@ -110,7 +112,9 @@
     }
     #item-cont {
         flex-direction: row;
+        justify-content: start;
         a {
+            margin:10px;
             width: 25%;
         }
     }
