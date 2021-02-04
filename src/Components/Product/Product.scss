@@ -66,6 +66,29 @@ flex-direction: column;
                     border:1px solid black;
                     display: flex;
                     justify-content: space-between;
+                    overflow: hidden;
+                    #minus-btn {
+                        height:100%;
+                        width:30px;
+                        cursor: pointer;
+                        text-align: center;
+                        padding-top:4px;
+                        transition: background 0.3s;
+                    }
+                    #add-btn {
+                        height:100%;
+                        width:30px;
+                        cursor: pointer;
+                        text-align: center;
+                        padding-top:4px;
+                        transition: background 0.3s;
+                    }
+                    #minus-btn:hover {
+                        background:lightgrey;
+                    }
+                    #add-btn:hover {
+                        background:lightgrey;
+                    }
                 }
             }
         }
@@ -79,9 +102,9 @@ flex-direction: column;
         flex-direction: row;
         width: 100%;
         #product-box1{
-            width:50%;
+            width:48%;
             img {
-                width:90%;
+                width:80%;
                 height:80vh;
             }
         }

@@ -46,10 +46,15 @@ class Product extends Component {
             <div id='box2'><p>{this.props.product.description}</p></div>
             <div id='box3'>
               <div id='product-btns'>
+                <span>Color</span>
+                <select>
+                  <option>Red</option>
+                  <option>White</option>
+                </select>
                 <div id='product-counter'>
-                  <div onClick={() => {this.setState({items: this.state.items - 1})}} style={{"margin":"5px 0px 0px 15px", "height":"100%","width":"25px", "cursor":"pointer"}}>-</div>
-                  <div style={{"margin":"5px","height":"100%"}}>{this.state.items}</div>
-                  <div onClick={() => {this.setState({items: this.state.items + 1})}} style={{"margin":"5px 10px 0px 0px","height":"100%", "width":"25px", "cursor":"pointer"}}>+</div>
+                  <div onClick={() => {this.setState({items: this.state.items - 1})}} id='minus-btn'>-</div>
+                  <div style={{"margin":"5px","height":"100%"}}>Quantity: {this.state.items}</div>
+                  <div onClick={() => {this.setState({items: this.state.items + 1})}} id='add-btn'>+</div>
                 </div>
                 <Link to='/products/'>
                   <Button variant="contained" color="primary" disableElevation>Buy Now</Button>
