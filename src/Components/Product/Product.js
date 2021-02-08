@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../Footer/Footer';
 import {connect} from 'react-redux';
 import Button from '@material-ui/core/Button';
 import {getProduct} from '../../Redux/reducer';
@@ -46,11 +47,18 @@ class Product extends Component {
             <div id='box2'><p>{this.props.product.description}</p></div>
             <div id='box3'>
               <div id='product-btns'>
-                <span>Color</span>
-                <select>
-                  <option>Red</option>
-                  <option>White</option>
-                </select>
+                <div id='extra-styles-cont'>
+                  <span style={{"width":"10%"}}>Color: </span>
+                  <select>
+                    <option>Red</option>
+                    <option>White</option>
+                  </select>
+                  <span style={{"width":"10%"}}>Color: </span>
+                  <select>
+                    <option>Red</option>
+                    <option>White</option>
+                  </select>
+                </div>
                 <div id='product-counter'>
                   <div onClick={() => {this.setState({items: this.state.items - 1})}} id='minus-btn'>-</div>
                   <div style={{"margin":"5px","height":"100%"}}>Quantity: {this.state.items}</div>
@@ -67,6 +75,7 @@ class Product extends Component {
         </div>
         </div>
         {/* End of container ! */}
+        <Footer />
       </div>
      );
   }
