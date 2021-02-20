@@ -48,16 +48,24 @@ class Product extends Component {
             <div id='box3'>
               <div id='product-btns'>
                 <div id='extra-styles-cont'>
-                  <span style={{"width":"10%"}}>Color: </span>
-                  <select>
-                    <option>Red</option>
-                    <option>White</option>
-                  </select>
-                  <span style={{"width":"10%"}}>Color: </span>
-                  <select>
-                    <option>Red</option>
-                    <option>White</option>
-                  </select>
+                  <div>
+                    <span>Color: </span>
+                    <select>
+                      <option>Red</option>
+                      <option>Purple</option>
+                      <option>Purple</option>
+                      <option selected>Choose Your Color</option>
+                    </select>
+                  </div>
+                  <div>
+                  <span>Size: </span>
+                    <select>
+                      <option>S</option>
+                      <option>M</option>
+                      <option>L</option>
+                      <option selected>Choose Your Size</option>
+                    </select>
+                  </div>
                 </div>
                 <div id='product-counter'>
                   <div onClick={() => {this.setState({items: this.state.items - 1})}} id='minus-btn'>-</div>

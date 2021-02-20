@@ -141,7 +141,8 @@
   }
   .popular-link:hover {
       transition: all 0.5s;
-      box-shadow:0px 0px 2px 3px lightgrey;
+    //   box-shadow:0px 0px 2px 3px lightgrey;
+    border: 1px solid red;
   }
 // IPAD
 @media only screen and (min-width: 768px) {

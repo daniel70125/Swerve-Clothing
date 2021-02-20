@@ -50,7 +50,7 @@ flex-direction: column;
              }
         }
         #box3{
-            height:175px;
+            height:235px;
             padding:10px;
             #product-btns {
                 height:100%;
@@ -58,10 +58,16 @@ flex-direction: column;
                 flex-direction: column;
                 #extra-styles-cont {
                     span {
-                        margin-right:10px;
+                        font-size:24px;
+                        margin-right:15px;
                     }
                     select {
+                        border-color: #888888;
+                        height: 40px;
+                        width: 200px;
+                        color:grey;
                         padding:5px;
+                        margin-bottom:10px;
                     }
                 }
                 button {

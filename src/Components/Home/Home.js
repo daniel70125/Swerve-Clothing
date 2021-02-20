@@ -66,7 +66,7 @@ class Home extends Component {
                     <hr style={{"color":""}}/>
                     <Fade in='true' timeout={7000}>
                         <Link to='/products/'>
-                            <Button variant="contained" color="primary" disableElevation>Shop Now</Button>
+                            <Button variant="contained" style={{"background":"grey"}} disableElevation>Shop Now</Button>
                         </Link>
                     </Fade>
                 </div>
@@ -107,7 +107,7 @@ class Home extends Component {
                                 <p>Hello</p>
                                 <p>Sign up to be the first to hear about exclusive deals, special offers and upcoming collections</p>
                                 <input type='text' placeholder='Email' />
-                                <Button className='modal-btn' variant="contained" color="primary" disableElevation>Submit</Button>
+                                <Button className='modal-btn' variant="contained" disableElevation>Submit</Button>
                         </div>
                     </div>
                 </div>
