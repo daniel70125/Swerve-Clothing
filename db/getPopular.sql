@@ -1,2 +1,2 @@
-SELECT * FROM swerveitems
+SELECT * FROM clothing
 ORDER BY id DESC LIMIT 3;

@@ -33,7 +33,7 @@ export class MapContainer extends Component {
       position: 'relative',  
       height: '50vh'
     }
-    const {lat, long} = this.props;
+    // const {lat, long} = this.props;
     console.log(this.props);
     return (
       <>

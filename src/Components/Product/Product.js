@@ -15,12 +15,19 @@ class Product extends Component {
     this.state = { 
       items: 1
      }
+
   }
    async componentDidMount(){
     await this.props.getProduct(this.props.match.url)
   }
+  quantityUp(){
+    console.log()
+    this.setState({items: this.state.items + 1})
+  }
+  quantityDown(){
+    this.setState({items: this.state.items - 1})
+  }
   render() { 
-    console.log(this.props)
     return ( 
       this.props.loading === true ? <Loading /> :
       <div id='product-main-cont'>
@@ -29,7 +36,7 @@ class Product extends Component {
                 <Link style={{"color":"white"}} to="/">
                     Home
                 </Link>
-                <Link style={{"color":"white"}} to="/">
+                <Link style={{"color":"white"}} to="/products/">
                     Products
                 </Link>
                 <Typography style={{"color":"grey", "fontSize":"24px"}}>{this.props.product.title}</Typography>
@@ -37,7 +44,7 @@ class Product extends Component {
           </div>
         <div id='product-cont'>
         <div id='product-box1'>
-            <img src={this.props.product.img} />
+            <img alt='product' src={this.props.product.img} />
         </div>
         <div id='product-box2'>
             <div id='box1'>
@@ -53,7 +60,7 @@ class Product extends Component {
                     <select>
                       <option>Red</option>
                       <option>Purple</option>
-                      <option>Purple</option>
+                      <option>Yellow</option>
                       <option selected>Choose Your Color</option>
                     </select>
                   </div>
@@ -68,9 +75,9 @@ class Product extends Component {
                   </div>
                 </div>
                 <div id='product-counter'>
-                  <div onClick={() => {this.setState({items: this.state.items - 1})}} id='minus-btn'>-</div>
+                  <div onClick={() => this.quantityDown()} id='minus-btn'>-</div>
                   <div style={{"margin":"5px","height":"100%"}}>Quantity: {this.state.items}</div>
-                  <div onClick={() => {this.setState({items: this.state.items + 1})}} id='add-btn'>+</div>
+                  <div onClick={() => this.quantityUp()} id='add-btn'>+</div>
                 </div>
                 <Link to='/products/'>
                   <Button variant="contained" color="primary" disableElevation>Buy Now</Button>

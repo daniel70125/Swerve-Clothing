@@ -87,12 +87,26 @@
     flex-wrap: wrap;
     background-size: cover;
     a {
+        transition: all 0.5s;
         margin: auto;
         width:90%;
         position: relative;
         // margin: 10px auto 10px auto;
-        min-height: 47vh;
+        height: 50vh;
         overflow: hidden;
+    }
+    #product-card {
+        height:45vh;
+        position: relative;
+        img {
+            height:100%;
+            width:100%;
+        }
+        p {
+            font-size: 20px;
+            margin: 5px 0;
+            font-weight: 700;
+        }
     }
 }
 #item-cont {
@@ -112,9 +126,12 @@
     #item-cont {
         flex-direction: row;
         justify-content: start;
+        a:hover {
+            transform: translateY(-12px);
+        }
         a {
             margin:10px;
-            width: 25%;
+            width: 23%;
         }
     }
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './PopularItems.scss';
+import './SimilarItems.scss';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
-class PopularItems extends Component {
+class SimilarItems extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -18,7 +18,7 @@ class PopularItems extends Component {
         const {title, price, img} = this.props.elm
         return ( 
             <div id='popular-cont'>
-                <img alt='img' src={img} style={{"width":"80%", "height":"50vh"}} />
+                <img src={img} style={{"width":"80%", "height":"50vh"}} />
                 <p style={{"marginBottom":"0"}} className='type'>{title}</p>
                 <p>${price} <span style={{"fontSize":"12px"}}>+shipping</span></p>
                 <Button variant="contained"  >Add To Cart</Button>
@@ -27,4 +27,4 @@ class PopularItems extends Component {
     }
 }
  
-export default PopularItems;
+export default SimilarItems;

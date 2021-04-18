@@ -5,7 +5,6 @@ import ScrollUpButton from 'react-scroll-up-button';
 import {Link} from 'react-router-dom';
 import './Products.scss';
 import ScrollReveal from 'scrollreveal'
-import Card from '../Card/Card';
 // import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
@@ -31,10 +30,15 @@ class Products extends Component {
 
     let start = 0;
     for (let index = 0; index < this.state.items.length; index++) {
-      console.log(start);
       ScrollReveal().reveal(`.linksSR${index}`, {delay: start});
       start = start + 300;
     }
+    const productCardsArray = document.querySelectorAll('.product-Cards')
+    productCardsArray.forEach((elm, index) => {
+      elm.addEventListener('mouseover', (e) => {
+        
+      })
+    })
   }
   // async getDrawings(){
   //   await axios.get('/items/drawings').then(res => {
@@ -60,8 +64,15 @@ class Products extends Component {
   render() { 
     const item = this.state.items.map((elm, index) => {
       return (
-            <Link style={{"textDecoration":"none"}}className={`linksSR${index}`} to={`/item/${elm.id}`}>
-              <Card key={index} id={index} elm={elm} />
+            <Link key={index} style={{"textDecoration":"none"}}className={`linksSR${index}`} to={`/item/${elm.id}`}>
+              {/* <Card key={index} id={index} elm={elm} /> */}
+              <div id='product-card' className='product-Cards'>
+                <img alt={elm.title} src={elm.img}/> 
+                 {/* img size: 400 X 500 */}
+                 <p>${elm.price}</p>
+              </div>
+
+
             </Link>
       )
     })

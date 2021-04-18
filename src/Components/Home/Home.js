@@ -4,7 +4,7 @@ import Slideshow from '../Slideshow/Slideshow';
 import Button from '@material-ui/core/Button';
 import Fade from '@material-ui/core/Fade';
 import {Link} from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PopularItems from '../PopularItems/PopularItems';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
@@ -17,20 +17,18 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            items: [{"title":"Jacket 1","id":"1","price":"15.00","description":"It's Cool", "img":"https://cdn.shopify.com/s/files/1/0352/5633/products/Cossack_Style_Wind_Breaker_-_Navy_Moleskin-16_2000x.jpg?v=1581882795"},
-             {"title":"Dress 1","id":"2","price":"25.00","description":"It's Cool", "img":"https://freepngimg.com/download/dress/4-2-dress-png-hd.png"},
-              {"title":"Sweater 1","id":"3","price":"28.00", "description":"It's Cool","img":"https://uploads-ssl.webflow.com/5d556af3fe21d65f602dca94/5ef0a2ef51ef17a783edf2d6_Order%20%23538882%20%7C%20jamie%40somethingnavy.com%202.jpg"}]
+            items: []
          }
     }
     async componentDidMount(){
-        // await axios.get('/latestProducts/')
-        // .then(res => {
-        //     console.log(res.data)
-        //     this.setState({
-        //         items: res.data
-        //     })
-        // })
-        // .catch()
+        await axios.get('/latestProducts/')
+        .then(res => {
+            console.log(res.data)
+            this.setState({
+                items: res.data
+            })
+        })
+        .catch()
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];
         window.addEventListener('load', (event) => {
@@ -43,7 +41,7 @@ class Home extends Component {
             document.getElementById('header').style.zIndex = 5;
             }
         window.onclick = function(event) {
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = "none";
                 document.getElementById('header').style.zIndex = 5;
             }
@@ -72,15 +70,15 @@ class Home extends Component {
                 </div>
                 <div id='home-qoute'>
                 <div className='quote-box'>
-                        <img src={Guarantee} />
+                        <img alt='guarantee icon' src={Guarantee} />
                         <h5>Money Back Gurantee</h5>
                     </div>
                     <div className='quote-box'>
-                        <img src={Delivery} />
+                        <img alt='delivery icon' src={Delivery} />
                         <h5>Free Shipping</h5>
                     </div>
                     <div className='quote-box'>
-                        <img src={Support} />
+                        <img alt='suppport icon' src={Support} />
                         <h5>24/7 Support</h5>
                     </div>
                 </div>

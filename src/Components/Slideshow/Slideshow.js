@@ -10,8 +10,8 @@ const slideImages = [
   // pic1,
   // pic2,
   // pic3
-  'https://wallpaperaccess.com/full/1448056.jpg',
-  'https://cdn.pixabay.com/photo/2017/08/01/11/48/blue-2564660_960_720.jpg',
+  'https://image.freepik.com/free-photo/girlfriends-going-shopping-concept_53876-86016.jpg',
+  'https://image.freepik.com/free-photo/magnificent-woman-long-bright-skirt-dancing-studio-carefree-inspired-female-model-posing-with-pleasure-yellow_197531-11084.jpg',
   'https://wallpaperaccess.com/full/1448056.jpg'
 ];
 
