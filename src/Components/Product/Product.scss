@@ -10,6 +10,12 @@
     background-size: cover;
     margin-bottom: 10px;
 }
+#related-items-h3 {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 32px;
+}
+
 #product-cont {
 width:100vw;
 display: flex;
@@ -77,7 +83,7 @@ flex-direction: column;
                 #product-counter {
                     height:20%;
                     font-size:22px;
-                    border:1px solid black;
+                    border:1px solid lightgrey;
                     display: flex;
                     justify-content: space-between;
                     overflow: hidden;
@@ -108,9 +114,89 @@ flex-direction: column;
         }
     }
 }
+.modal-content2 {
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    margin: 8% auto 0 auto; /* 15% from the top and centered */
+    height:70vh;
+    width: 100%; /* Could be more or less, depending on screen size */
+  }
+  .close2 {
+    color: #aaa;
+    position: fixed;
+    font-size: 42px;
+    position:absolute;
+    right:3vw;
+    font-weight: bold;
+  }
+  .button2:hover {
+    transform: scale(1.2);
+  }
+  .button2 {
+      transition: all 0.5s;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    transition: all .3s ease;
+    text-align: center;
+    line-height: 1.42857143;
+    border: 2px solid transparent;
+    margin-bottom: 5px;
+    margin-top: 45px;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    background-image: none;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+    color: #ffffff;
+    background-color: #0083ff;
+    padding: 10px 10px;
+    font-size: 10px;
+  }
+  h1.es-title {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    font-size: 26px;
+    font-weight: 800;
+    margin: 45px 0 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  textarea {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font: inherit;
+    margin: 10px 1px 10px 20px;
+    overflow: auto;
+    box-shadow: none;
+    height: 120px;
+    padding: 10px 16px;
+    resize: none;
+    width: 90%;
+  }
 @media only screen and (min-width: 1050px) {
+    #related-main {
+        display: flex;
+    }
     #product-main-cont {
         margin-left:6vw;
+    }
+    #product-counter {
+        width:45%;
+        margin: auto;
     }
     #product-cont {
         flex-direction: row;

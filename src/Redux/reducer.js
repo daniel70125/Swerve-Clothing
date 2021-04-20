@@ -23,7 +23,7 @@ export function getProduct(path){
     }
 }
 
-export default function cookieReducer(state = initialState, action){
+export default function clothingReducer(state = initialState, action){
     const {type, payload} = action;
     switch(type){
         case GET_USER:

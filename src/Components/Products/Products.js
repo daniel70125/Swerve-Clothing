@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../Footer/Footer';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
 import ScrollUpButton from 'react-scroll-up-button';
@@ -100,6 +101,7 @@ class Products extends Component {
           <div id='item-cont'>
             {item}
           </div>
+          <Footer />
     </div>
      );
   }

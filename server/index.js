@@ -75,6 +75,7 @@ app.get('/item/:id', async (req, res) => {
   
 })
 app.get('/allProducts', ctrl.allProducts)
+app.get('/relatedProducts', ctrl.relatedProducts)
 app.get('/item/:id', async (req, res) => {
   const {id} = req.params;
 console.log(id);

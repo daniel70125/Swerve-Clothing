@@ -15,10 +15,10 @@ class SimilarItems extends Component {
         axios.post('')
     }
     render() { 
-        const {title, price, img} = this.props.elm
+        const {title, price, img} = this.props
         return ( 
             <div id='popular-cont'>
-                <img src={img} style={{"width":"80%", "height":"50vh"}} />
+                <img alt=''  src={img} style={{"width":"80%", "height":"50vh"}} />
                 <p style={{"marginBottom":"0"}} className='type'>{title}</p>
                 <p>${price} <span style={{"fontSize":"12px"}}>+shipping</span></p>
                 <Button variant="contained"  >Add To Cart</Button>

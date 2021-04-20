@@ -65,6 +65,9 @@
 #home-latest-items {
     display: flex;
     flex-direction: column;
+    a {
+        transition: all 0.5s;
+    }
 }
 /* The Modal (background) */
 .modal {
@@ -87,7 +90,6 @@
     flex-direction: column;
     margin: 15% auto 0 auto; /* 15% from the top and centered */
     height:70vh;
-    // border: 1px solid #888;
     width: 90%; /* Could be more or less, depending on screen size */
   }
   
@@ -142,8 +144,6 @@
   }
   .popular-link:hover {
       transition: all 0.5s;
-      box-shadow:0px 0px 2px 3px lightgrey;
-    // border: 0.1px solid red;
   }
 // IPAD
 @media only screen and (min-width: 768px) {
@@ -197,6 +197,9 @@
         flex-direction: row;
         justify-content: space-around;
         margin-bottom:15px;
+        a:hover {
+            transform: translateY(-12px);
+        }
     }
     
     #modal-box-left {
