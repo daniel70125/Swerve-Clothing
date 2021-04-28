@@ -15,11 +15,17 @@
     text-decoration: underline;
     font-size: 32px;
 }
-
+#sucess-message {
+    opacity: 0.0;
+}
+#review-text {
+    display: block;
+}
 #product-cont {
 width:100vw;
 display: flex;
 flex-direction: column;
+border-bottom:1px solid grey;
     #product-box1 {
         width:100vw;
         text-align: center;
@@ -201,6 +207,7 @@ flex-direction: column;
     #product-cont {
         flex-direction: row;
         width: 100%;
+        border-bottom:none;
         #product-box1{
             width:48%;
             img {

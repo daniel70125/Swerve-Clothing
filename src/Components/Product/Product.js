@@ -36,6 +36,13 @@ class Product extends Component {
       }
     }
   }
+  msgSent(){
+    const sucessP = document.querySelector('#sucess-message');
+    const sucessBtn = document.querySelector('#review-btn');
+    const reviewText = document.querySelector('#review-text');
+    sucessP.style.opacity = '1';
+    sucessBtn.style.display = 'none';
+  }
   openModal(){
     var modal2 = document.getElementById("myModal2");
     modal2.style.display = "block";
@@ -63,7 +70,7 @@ class Product extends Component {
       this.props.loading === true ? <Loading /> :
       <div id='product-main-cont'>
         <div id='product-nav'>
-              <Breadcrumbs aria-label="breadcrumb">
+              <Breadcrumbs aria-label="breadcrumb" style={{"background-color":"black"}}>
                 <Link style={{"color":"white"}} to="/">
                     Home
                 </Link>
@@ -131,10 +138,11 @@ class Product extends Component {
                         <span onClick={this.closeModal} className="close2">&times;</span>
                         <div id='review-main-cont'>
                           <h1 class="es-title">Leave us a review !</h1>
-                          <p>What do you think about {this.props.product.title} ?</p>
+                          <p style={{"textAlign":"center"}}>What do you think about {this.props.product.title} ?</p>
                           <textarea id="review-text" name="review-text" placeholder="Enter your review here ... "></textarea>        
                           <div style={{"textAlign":"center"}}>
-                          <Button variant="contained" style={{"background":"grey"}} disableElevation>Shop Now</Button>  
+                          <Button id='review-btn' onClick={this.msgSent} variant="contained" disableElevation>Send Message</Button>  
+                          <p id='sucess-message'>Message Sent!</p>
                           </div>
                         </div>
                     </div>
