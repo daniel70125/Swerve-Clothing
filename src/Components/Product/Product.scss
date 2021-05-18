@@ -122,6 +122,7 @@ border-bottom:1px solid grey;
 }
 .modal-content2 {
     background-color: #fefefe;
+    // background-color: lightgrey;
     display: flex;
     flex-direction: column;
     margin: 8% auto 0 auto; /* 15% from the top and centered */
@@ -196,6 +197,12 @@ border-bottom:1px solid grey;
 @media only screen and (min-width: 1050px) {
     #related-main {
         display: flex;
+    }
+    .modal-content2 {
+     width:45%;   
+    }
+    .close2 {
+        right:28vw;
     }
     #product-main-cont {
         margin-left:6vw;

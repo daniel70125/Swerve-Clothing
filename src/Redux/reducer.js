@@ -1,13 +1,15 @@
 import axios from 'axios';
 
 const initialState = {
-    user: {},
+    user: {cart: []},
     product: [],
-    loading: false
+    loading: false,
+    cartItems: 0
 }
 
 const GET_USER = 'GET_USER';
 const GET_PRODUCT = 'GET_PRODUCT';
+const GET_CART_TOTAL = 'GET_CART_TOTAL';
 
 export function getUser(user){
     return {
@@ -16,6 +18,13 @@ export function getUser(user){
     }
 }
 export function getProduct(path){
+    const product = axios.get(path);
+    return {
+        type:GET_PRODUCT,
+        payload: product
+    }
+}
+export function getCartTotal(path){
     const product = axios.get(path);
     return {
         type:GET_PRODUCT,

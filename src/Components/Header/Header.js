@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+// import {getCartTotal} from '../../Redux/reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faHome, faTshirt, faEnvelope, faAddressCard, faBars, faTimes, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import {  faInstagram, faTwitter  } from '@fortawesome/free-brands-svg-icons';
@@ -23,8 +25,10 @@ class Header extends Component {
             <header id='header'>
                 <div id='ex'>
                 <div className='cart-logo'>
-                    <FontAwesomeIcon icon={faShoppingCart} />
-                    <span style={{"position":"absolute", "fontSize":"15px", "left":"39px", }}>3</span>
+                    <Link style={{"color":"white"}} to='/cart/'>
+                        <FontAwesomeIcon icon={faShoppingCart} />
+                    </Link>
+                    <span style={{"position":"absolute", "fontSize":"15px", "left":"39px", }}>{this.props.cartItems}</span>
                 </div>
                 <div id='icon-cont'>
                     <Link to='/'>
@@ -82,4 +86,5 @@ class Header extends Component {
     }
 }
  
-export default Header;
+const mapStateToProps = reduxState => reduxState;
+export default connect(mapStateToProps)(Header); 

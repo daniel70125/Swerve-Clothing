@@ -21,6 +21,7 @@ class Home extends Component {
          }
     }
     async componentDidMount(){
+        // Get latest products using axios
         await axios.get('/latestProducts/')
         .then(res => {
             console.log(res.data)
@@ -28,7 +29,8 @@ class Home extends Component {
                 items: res.data
             })
         })
-        .catch()
+        .catch(err => console.log(err));
+        // modal settings
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];
         window.addEventListener('load', (event) => {

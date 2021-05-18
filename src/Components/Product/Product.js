@@ -21,14 +21,16 @@ class Product extends Component {
 
   }
    async componentDidMount(){
+     // Get product from back-end
     await this.props.getProduct(this.props.match.url)
+    // Get related Items from back-end
     await axios.get('/relatedProducts')
     .then(res => {
       this.setState({
         relatedItems: res.data
     })})
     .catch(err => console.log(err));
-
+    // Modal settings below
     var modal2 = document.getElementById("myModal2");
     window.onclick = function(event) {
       if (event.target === modal2) {
@@ -42,6 +44,7 @@ class Product extends Component {
     const reviewText = document.querySelector('#review-text');
     sucessP.style.opacity = '1';
     sucessBtn.style.display = 'none';
+    reviewText.value = '';
   }
   openModal(){
     var modal2 = document.getElementById("myModal2");
@@ -58,7 +61,18 @@ class Product extends Component {
   quantityDown(){
     this.setState({items: this.state.items - 1})
   }
+  async addToCart(type){
+    const {title, price, img, id} = this.props.product;
+    // const {index} = this.props;
+    
+    const {items} = this.state;
+    const addedItem = await axios.post('/updatecart/', {title, items, price, img});
+    console.log(addedItem);
+}
   render() { 
+      
+
+    // Render each item below
     const item = this.state.relatedItems.map((elm, index) => {
       return (
             <Link key={index} style={{"textDecoration":"none"}} to={`/item/${elm.id}`}>
@@ -95,20 +109,20 @@ class Product extends Component {
                 <div id='extra-styles-cont'>
                   <div>
                     <span>Color: </span>
-                    <select>
-                      <option>Red</option>
-                      <option>Purple</option>
-                      <option>Yellow</option>
-                      <option selected>Choose Your Color</option>
+                    <select defaultValue={'DEFAULT'}>
+                      <option value='Red' >Red</option>
+                      <option value='Purple' >Purple</option>
+                      <option value='Yellow' >Yellow</option>
+                      <option value="DEFAULT">Choose Your Color</option>
                     </select>
                   </div>
                   <div>
                   <span>Size: </span>
-                    <select>
-                      <option>S</option>
-                      <option>M</option>
-                      <option>L</option>
-                      <option selected>Choose Your Size</option>
+                    <select defaultValue={'DEFAULT'}>
+                      <option value='S' >S</option>
+                      <option value='M' >M</option>
+                      <option value='L' >L</option>
+                      <option value="DEFAULT">Choose Your Size</option>
                     </select>
                   </div>
                 </div>
@@ -137,7 +151,7 @@ class Product extends Component {
                     <div className="modal-content2">
                         <span onClick={this.closeModal} className="close2">&times;</span>
                         <div id='review-main-cont'>
-                          <h1 class="es-title">Leave us a review !</h1>
+                          <h1 className="es-title">Leave us a review !</h1>
                           <p style={{"textAlign":"center"}}>What do you think about {this.props.product.title} ?</p>
                           <textarea id="review-text" name="review-text" placeholder="Enter your review here ... "></textarea>        
                           <div style={{"textAlign":"center"}}>
