@@ -25,7 +25,6 @@ class Products extends Component {
       this.setState({
         items: res.data
     })
-    console.log(res.data)
     })
     .catch(err => console.log(err));
 
@@ -72,8 +71,6 @@ class Products extends Component {
                  {/* img size: 400 X 500 */}
                  <p>${elm.price}</p>
               </div>
-
-
             </Link>
       )
     })

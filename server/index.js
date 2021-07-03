@@ -24,6 +24,8 @@ app.use(session({
 
  // const YOUR_DOMAIN = 'http://104.131.29.110:4003/#/'; // production domain
 // const YOUR_DOMAIN = 'http://localhost:3000/#/'; // local domain
+
+// Stripe Payment Below
 app.post('/create-session', async (req, res) => {
     const {price, title, img} = req.body;
     const newPrice = +price * 100
@@ -48,6 +50,7 @@ app.post('/create-session', async (req, res) => {
   });
   res.json({ id: session.id });
 });
+
 app.get('/session', (req, res) => {
   if (!req.session.user){
     req.session.user = {
@@ -63,68 +66,7 @@ app.get('/session', (req, res) => {
 }
 }
 );
-app.post('/cart/', (req, res) => {
-  let {title, items, price, img} = req.body;
-  console.log(title, items, price, img)
-  console.log(req.session.user.cart)
-        if (req.session.user.cart.length > 0){
-            req.session.user.cart.map((elm) => {
-                if (title === elm.title){
-                    twice = true;
-                   return elm.quantity = +elm.quantity + +quantity;
-                }
-            })
-        }
-        // if (req.session.user.cart.length === 0){
-            req.session.user.cart.push(req.body)
-        // }
-        console.log(req.session.user.cart)
-        res.status(200).send(req.session.user.cart);
-    }
-)
-app.post('/updatecart/', (req, res) => {
-  const {title, items, price, img} = req.body;
-  console.log(title)
-  if (!req.session.user){
-    req.session.user = {
-      name: "",
-      number: "",
-      email: "",
-      cart: [],
-      total: 0
-    }
-    req.session.user.cart.push({title, items, price, img});
-    res.status(200).send(req.session);
-  } else {
-    req.session.user.cart.map((e) => {
-      console.log(e)
-      if (e.title.toLowerCase() === title.toLowerCase()){
-        e.items = +e.items + +items;
-      }
-      res.status(200).send(req.session);
-    })
-  }
-})
-app.get('/item/:id', async (req, res) => {
-    const {id} = req.params;
-
-    const db = req.app.get('db');
-    const art = await db.getItem(id);
-    res.status(200).send(art);
-    
-})
 app.get('/latestProducts/', ctrl.getLatest )
-app.post('/', (req, res) => {
-  const {price, title, img} = req.body;
-})
-app.get('/item/:id', async (req, res) => {
-  const {id} = req.params;
-
-  const db = req.app.get('db');
-  const art = await db.getItem(id);
-  res.status(200).send(art);
-  
-})
 app.get('/allProducts', ctrl.allProducts)
 app.get('/relatedProducts', ctrl.relatedProducts)
 app.get('/item/:id', async (req, res) => {
@@ -134,6 +76,43 @@ console.log(id);
   const item = await db.getItem(id);
   res.status(200).send(item);
   
+})
+app.get('/cart/', (req, res) => {
+  res.status(200).send(req.session.user)
+})
+
+app.post('/updatecart/', (req, res) => {
+  const {title, items, price, img, size, color} = req.body;
+  console.log(title)
+  let twice = false;
+  if (!req.session.user){
+    console.log('new cart')
+    req.session.user = {
+      name: "",
+      number: "",
+      email: "",
+      cart: [],
+      total: 0
+    }
+    req.session.user.cart.push({title, items, price, img, size, color});
+    res.status(200).send(req.session);
+  } else {
+    req.session.user.cart.map((e) => {
+      if (title.toLowerCase() === e.title.toLowerCase()) {
+        e.items = +e.items + +items;
+        twice = true;
+        res.status(200).send(req.session);
+      }
+    })
+    console.log(twice);
+    if (twice === false){
+      req.session.user.cart.push({title, items, price, img, size, color});
+      res.status(200).send(req.session);
+      }
+  }
+})
+app.post('/', (req, res) => {
+  const {price, title, img} = req.body;
 })
 
 massive({

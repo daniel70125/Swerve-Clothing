@@ -9,7 +9,7 @@ class Loading extends Component {
         return ( 
             <div style={{"textAlign":"center", "fontSize":"24px"}} className='main-cont'>
                 <img style={{"opacity": "0.5"}} src='https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif' alt='loading icon'/>
-                <h4>Getting the item for you ! ...</h4>
+                <h4>Hang tight! We're getting those items for you item for you ! ...</h4>
             </div>
          );
     }

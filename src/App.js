@@ -16,10 +16,8 @@ class App extends Component {
     }
   }
   async componentDidMount(){
-    console.log('mounted !')
     await axios.get('/session')
     .then(res => {
-      console.log(res.data)
       this.props.getUser(res.data)
     })
     .catch(err => console.log(err))

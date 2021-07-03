@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('https://wallpaperaccess.com/full/318703.jpg');
+    background-image: url('https://images.wallpaperscraft.com/image/dark_spots_texture_background_50355_1600x1200.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -197,6 +197,12 @@ border-bottom:1px solid grey;
 @media only screen and (min-width: 1050px) {
     #related-main {
         display: flex;
+        a:hover {
+            transform: translateY(-12px);
+        }
+        a {
+            transition: all 0.5s;
+        }
     }
     .modal-content2 {
      width:45%;   

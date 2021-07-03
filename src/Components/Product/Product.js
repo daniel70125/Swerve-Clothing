@@ -3,6 +3,7 @@ import Footer from '../Footer/Footer';
 import {connect} from 'react-redux';
 import Button from '@material-ui/core/Button';
 import {getProduct} from '../../Redux/reducer';
+import {getCartTotal} from '../../Redux/reducer';
 import Loading from '../Loading/Loading';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
@@ -16,9 +17,12 @@ class Product extends Component {
     super(props);
     this.state = { 
       items: 1,
-      relatedItems: []
+      size:'undefined',
+      color: 'undefined',
+      relatedItems: [],
+      isLoading: false
      }
-
+     this.addToCart = this.addToCart.bind(this);
   }
    async componentDidMount(){
      // Get product from back-end
@@ -38,6 +42,21 @@ class Product extends Component {
       }
     }
   }
+
+  async componentDidUpdate(prevProps) {
+    if(prevProps.match.params.id !== this.props.match.params.id){
+      await this.props.getProduct(this.props.match.url)
+    // Get related Items from back-end
+    await axios.get('/relatedProducts')
+    .then(res => {
+      this.setState({
+        relatedItems: res.data
+    })})
+    .catch(err => console.log(err));
+    }
+  }
+
+
   msgSent(){
     const sucessP = document.querySelector('#sucess-message');
     const sucessBtn = document.querySelector('#review-btn');
@@ -61,17 +80,25 @@ class Product extends Component {
   quantityDown(){
     this.setState({items: this.state.items - 1})
   }
-  async addToCart(type){
+  async addToCart(){
     const {title, price, img, id} = this.props.product;
     // const {index} = this.props;
     
-    const {items} = this.state;
-    const addedItem = await axios.post('/updatecart/', {title, items, price, img});
-    console.log(addedItem);
+    const {items, size, color} = this.state;
+    const addedItem = await axios.post('/updatecart/', {title, items, price, img, id, size, color});
+    this.setState({
+      isLoading: true
+    })
+    const cartItems = await axios.get('/cart/');
+    await this.props.getCartTotal(cartItems.data.cart)
+    setTimeout(() => {
+      this.setState({
+        isLoading: false
+      })
+      this.props.history.push('/cart');
+    }, 3000);
 }
   render() { 
-      
-
     // Render each item below
     const item = this.state.relatedItems.map((elm, index) => {
       return (
@@ -81,10 +108,10 @@ class Product extends Component {
       )
     })
     return ( 
-      this.props.loading === true ? <Loading /> :
+      this.state.isLoading === true ? <Loading /> :
       <div id='product-main-cont'>
         <div id='product-nav'>
-              <Breadcrumbs aria-label="breadcrumb" style={{"background-color":"black"}}>
+              <Breadcrumbs aria-label="breadcrumb">
                 <Link style={{"color":"white"}} to="/">
                     Home
                 </Link>
@@ -109,8 +136,8 @@ class Product extends Component {
                 <div id='extra-styles-cont'>
                   <div>
                     <span>Color: </span>
-                    <select defaultValue={'DEFAULT'}>
-                      <option value='Red' >Red</option>
+                    <select onChange={(e) => this.setState({color:e.target.value})} defaultValue={'DEFAULT'}>
+                      <option onClick={(e) => console.log('ok')} value='Red' >Red</option>
                       <option value='Purple' >Purple</option>
                       <option value='Yellow' >Yellow</option>
                       <option value="DEFAULT">Choose Your Color</option>
@@ -118,7 +145,7 @@ class Product extends Component {
                   </div>
                   <div>
                   <span>Size: </span>
-                    <select defaultValue={'DEFAULT'}>
+                    <select onChange={(e) => this.setState({size:e.target.value})}defaultValue={'DEFAULT'}>
                       <option value='S' >S</option>
                       <option value='M' >M</option>
                       <option value='L' >L</option>
@@ -131,12 +158,12 @@ class Product extends Component {
                   <div style={{"margin":"5px","height":"100%"}}>Quantity: {this.state.items}</div>
                   <div onClick={() => this.quantityUp()} id='add-btn'>+</div>
                 </div>
-                <Link to='/products/'>
-                  <Button variant="contained" color="primary" disableElevation>Buy Now</Button>
-                </Link>
-                <Link to='/products/'>
-                  <Button variant="contained" color="primary" disableElevation>Add To Cart</Button>
-                </Link>
+                
+                  <Button onClick={this.addToCart} variant="contained" color="primary" disableElevation>Buy Now</Button>
+                
+                
+                  <Button  variant="contained" color="primary" disableElevation>Add To Cart</Button>
+                
               </div>
             </div>
         </div>
@@ -169,4 +196,4 @@ class Product extends Component {
 }
  
 const mapStateToProps = reduxState => reduxState;
-export default connect(mapStateToProps, {getProduct})(Product); 
+export default connect(mapStateToProps, {getProduct, getCartTotal})(Product); 
