@@ -5,7 +5,7 @@ import Header from './Components/Header/Header';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {getUser} from './Redux/reducer'; 
-// import Footer from './Components/Footer/Footer';
+import Footer from './Components/Footer/Footer';
 // import Comingsoon from './Components/Comingsoon/Comingsoon';
 
 class App extends Component {
@@ -27,6 +27,7 @@ class App extends Component {
       <div className="App">
         <Header />
         {Routes}
+        <Footer />
         {/* <Comingsoon /> */}
       </div>
     );

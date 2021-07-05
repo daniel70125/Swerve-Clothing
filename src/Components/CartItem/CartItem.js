@@ -7,6 +7,7 @@ class CartItem extends Component {
     }
     render() { 
         const {elm, index} = this.props;
+        console.log(this.props.elm)
         return ( 
             <h1>{elm.title}</h1>
          );

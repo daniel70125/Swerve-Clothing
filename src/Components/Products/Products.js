@@ -98,7 +98,6 @@ class Products extends Component {
           <div id='item-cont'>
             {item}
           </div>
-          <Footer />
     </div>
      );
   }

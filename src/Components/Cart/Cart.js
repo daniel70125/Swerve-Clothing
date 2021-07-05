@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './Cart.scss';
 import axios from 'axios';
+import Footer from '../Footer/Footer';
 import {connect} from 'react-redux';
 import {getCartTotal} from '../../Redux/reducer';
-import Loading from '../Loading/Loading';
 import CartItem from '../CartItem/CartItem';
+import AddItemsLoader from '../AddItemsLoader/AddItemsLoader';
 
 class Cart extends Component {
     constructor(props) {
@@ -27,9 +28,9 @@ class Cart extends Component {
             return <CartItem elm={elm} index={index} />
         })
         return ( 
-            this.state.items.length <= 0 ? <Loading /> :
+            this.state.items.length <= 0 ? <AddItemsLoader /> :
             <div className='cart-wrapper-div'>
-                <h1>helo</h1>
+                <h1>Shopping Cart</h1>
                 {cartItems}
             </div>
          );

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../Footer/Footer';
 import {connect} from 'react-redux';
 import Button from '@material-ui/core/Button';
-import {getProduct} from '../../Redux/reducer';
-import {getCartTotal} from '../../Redux/reducer';
+import {getProduct, getCartTotal, updateTotal} from '../../Redux/reducer';
 import Loading from '../Loading/Loading';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
@@ -22,7 +21,7 @@ class Product extends Component {
       relatedItems: [],
       isLoading: false
      }
-     this.addToCart = this.addToCart.bind(this);
+     this.buyNow = this.buyNow.bind(this);
   }
    async componentDidMount(){
      // Get product from back-end
@@ -80,7 +79,7 @@ class Product extends Component {
   quantityDown(){
     this.setState({items: this.state.items - 1})
   }
-  async addToCart(){
+  async buyNow(){
     const {title, price, img, id} = this.props.product;
     // const {index} = this.props;
     
@@ -90,6 +89,7 @@ class Product extends Component {
       isLoading: true
     })
     const cartItems = await axios.get('/cart/');
+    await this.props.updateTotal(cartItems.data.cart.length)
     await this.props.getCartTotal(cartItems.data.cart)
     setTimeout(() => {
       this.setState({
@@ -159,7 +159,7 @@ class Product extends Component {
                   <div onClick={() => this.quantityUp()} id='add-btn'>+</div>
                 </div>
                 
-                  <Button onClick={this.addToCart} variant="contained" color="primary" disableElevation>Buy Now</Button>
+                  <Button onClick={this.buyNow} variant="contained" color="primary" disableElevation>Buy Now</Button>
                 
                 
                   <Button  variant="contained" color="primary" disableElevation>Add To Cart</Button>
@@ -189,11 +189,10 @@ class Product extends Component {
                     </div>
                 </div>
         {/* End of container ! */}
-        <Footer />
       </div>
      );
   }
 }
  
 const mapStateToProps = reduxState => reduxState;
-export default connect(mapStateToProps, {getProduct, getCartTotal})(Product); 
+export default connect(mapStateToProps, {getProduct, getCartTotal, updateTotal})(Product); 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../Footer/Footer';
 
 class Loading extends Component {
     constructor(props) {
@@ -7,9 +8,9 @@ class Loading extends Component {
     }
     render() { 
         return ( 
-            <div style={{"textAlign":"center", "fontSize":"24px"}} className='main-cont'>
+            <div className='main-cont'>
                 <img style={{"opacity": "0.5"}} src='https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif' alt='loading icon'/>
-                <h4>Hang tight! We're getting those items for you item for you ! ...</h4>
+                <h4>Hang tight! We're getting those items for you ! ...</h4>
             </div>
          );
     }

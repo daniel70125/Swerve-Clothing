@@ -10,6 +10,7 @@ const initialState = {
 const GET_USER = 'GET_USER';
 const GET_PRODUCT = 'GET_PRODUCT';
 const GET_CART_TOTAL = 'GET_CART_TOTAL';
+const UPDATE_CART_TOTAL = 'UPDATE_CART_TOTAL';
 
 export function getUser(user){
     return {
@@ -33,7 +34,12 @@ export function getCartTotal(path){
         payload: product
     }
 }
-
+export function updateTotal(total){
+    return {
+        type:UPDATE_CART_TOTAL,
+        payload: total
+    }
+}
 
 export default function clothingReducer(state = initialState, action){
     const {type, payload} = action;
@@ -50,10 +56,12 @@ export default function clothingReducer(state = initialState, action){
             return {...state, loading:true}
         case GET_CART_TOTAL + '_FULFILLED':
             return {...state, loading:false, cart:payload}
-        case GET_CART_TOTAL:
-            return {...state, loading:false, cart:payload}
+        // case GET_CART_TOTAL:
+        //     return {...state, loading:false, cart:payload}
         case GET_CART_TOTAL + '_REJECTED':
-            return initialState
+            return initialState;
+        case UPDATE_CART_TOTAL:
+            return {...state, cartItems:payload};
         default:
             return state;
     }

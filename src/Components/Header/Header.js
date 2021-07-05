@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {updateTotal} from '../../Redux/reducer';
 // import {getCartTotal} from '../../Redux/reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faHome, faTshirt, faEnvelope, faAddressCard, faBars, faTimes, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
@@ -87,4 +88,4 @@ class Header extends Component {
 }
  
 const mapStateToProps = reduxState => reduxState;
-export default connect(mapStateToProps)(Header); 
+export default connect(mapStateToProps, {updateTotal})(Header); 
