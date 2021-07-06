@@ -4,14 +4,12 @@ import Slideshow from '../Slideshow/Slideshow';
 import Button from '@material-ui/core/Button';
 import Fade from '@material-ui/core/Fade';
 import {Link} from 'react-router-dom'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PopularItems from '../PopularItems/PopularItems';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
 import Delivery from '../../Pictures/delivery.png'; 
 import Guarantee from '../../Pictures/guarantee.png'; 
 import Support from '../../Pictures/support.png'; 
-// import GMap from '../GoogleMap/GoogleMap';
 
 class Home extends Component {
     constructor(props) {

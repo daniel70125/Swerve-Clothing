@@ -93,7 +93,7 @@ border-bottom:1px solid grey;
                     display: flex;
                     justify-content: space-between;
                     overflow: hidden;
-                    #minus-btn {
+                    #minus-btn, #add-btn {
                         height:100%;
                         width:30px;
                         cursor: pointer;
@@ -101,18 +101,7 @@ border-bottom:1px solid grey;
                         padding-top:4px;
                         transition: background 0.3s;
                     }
-                    #add-btn {
-                        height:100%;
-                        width:30px;
-                        cursor: pointer;
-                        text-align: center;
-                        padding-top:4px;
-                        transition: background 0.3s;
-                    }
-                    #minus-btn:hover {
-                        background:lightgrey;
-                    }
-                    #add-btn:hover {
+                    #minus-btn:hover, #add-btn:hover{
                         background:lightgrey;
                     }
                 }
@@ -193,8 +182,20 @@ border-bottom:1px solid grey;
     padding: 10px 16px;
     resize: none;
     width: 90%;
-  }
+}
+@media only screen and (min-width: 600px) {
+    #product-main-cont {
+        margin-left: 14vw;
+    }
+    #product-cont {
+        width:100%;
+    }
+    #product-cont #product-box1 {
+        width:100%;
+    }
+}
 @media only screen and (min-width: 1050px) {
+    
     #related-main {
         display: flex;
         a:hover {

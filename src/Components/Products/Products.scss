@@ -121,17 +121,28 @@
 // }
 @media only screen and (min-width: 600px) {
     #portfolio-cont {
-        margin-left:6vw;
+        margin-left:14vw;
     }
     #item-cont {
         flex-direction: row;
-        justify-content: start;
+        justify-content: center;
         a:hover {
             transform: translateY(-12px);
         }
         a {
             margin:10px;
-            width: 23%;
+            width:45%;
+        }
+    }
+}
+@media only screen and (min-width: 1050px) {
+    #portfolio-cont {
+        margin-left:6vw;
+        #item-cont {
+            justify-content: start;
+            a {
+                width:31%;
+            }
         }
     }
 }

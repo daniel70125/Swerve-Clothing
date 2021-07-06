@@ -71,7 +71,6 @@ app.get('/allProducts', ctrl.allProducts)
 app.get('/relatedProducts', ctrl.relatedProducts)
 app.get('/item/:id', async (req, res) => {
   const {id} = req.params;
-console.log(id);
   const db = req.app.get('db');
   const item = await db.getItem(id);
   res.status(200).send(item);
@@ -83,7 +82,6 @@ app.get('/cart/', (req, res) => {
 
 app.post('/updatecart/', (req, res) => {
   const {title, items, price, img, size, color} = req.body;
-  console.log(title)
   let twice = false;
   if (!req.session.user){
     console.log('new cart')
@@ -95,24 +93,41 @@ app.post('/updatecart/', (req, res) => {
       total: 0
     }
     req.session.user.cart.push({title, items, price, img, size, color});
+    req.session.user.cart.map((elm, index) => {
+      let itemPrice = +elm.price * +elm.items;
+      req.session.user.total = req.session.user.total + itemPrice;
+    })
     res.status(200).send(req.session);
   } else {
     req.session.user.cart.map((e) => {
       if (title.toLowerCase() === e.title.toLowerCase()) {
         e.items = +e.items + +items;
         twice = true;
+        req.session.user.cart.map((elm, index) => {
+          let itemPrice = +elm.price * +elm.items;
+          req.session.user.total = req.session.user.total + itemPrice;
+        })
         res.status(200).send(req.session);
       }
     })
-    console.log(twice);
     if (twice === false){
+      req.session.user.total = 0;
       req.session.user.cart.push({title, items, price, img, size, color});
+      req.session.user.cart.map((elm, index) => {
+        let itemPrice = +elm.price * +elm.items;
+        req.session.user.total = req.session.user.total + itemPrice;
+      })
       res.status(200).send(req.session);
       }
   }
 })
 app.post('/', (req, res) => {
   const {price, title, img} = req.body;
+})
+
+app.delete('/removeItem', function (req, res) {
+  
+  res.status(200).send(req.session);
 })
 
 massive({

@@ -31,7 +31,9 @@ class Cart extends Component {
             this.state.items.length <= 0 ? <AddItemsLoader /> :
             <div className='cart-wrapper-div'>
                 <h1>Shopping Cart</h1>
-                {cartItems}
+                <div id='cart-cartitems-cont'>
+                    {cartItems}
+                </div>
             </div>
          );
     }

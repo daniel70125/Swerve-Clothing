@@ -22,6 +22,7 @@ class Product extends Component {
       isLoading: false
      }
      this.buyNow = this.buyNow.bind(this);
+     this.addToCart = this.addToCart.bind(this);
   }
    async componentDidMount(){
      // Get product from back-end
@@ -79,18 +80,26 @@ class Product extends Component {
   quantityDown(){
     this.setState({items: this.state.items - 1})
   }
+  async addToCart(){
+    const {title, price, img, id} = this.props.product;
+    const {items, size, color} = this.state;
+    await axios.post('/updatecart/', {title, items, price, img, id, size, color});
+    const cartItems = await axios.get('/cart/');
+    await this.props.updateTotal(cartItems.data.cart.length);
+    await this.props.getCartTotal(cartItems.data.cart);
+  }
   async buyNow(){
     const {title, price, img, id} = this.props.product;
     // const {index} = this.props;
     
     const {items, size, color} = this.state;
-    const addedItem = await axios.post('/updatecart/', {title, items, price, img, id, size, color});
+    await axios.post('/updatecart/', {title, items, price, img, id, size, color});
     this.setState({
       isLoading: true
     })
     const cartItems = await axios.get('/cart/');
-    await this.props.updateTotal(cartItems.data.cart.length)
-    await this.props.getCartTotal(cartItems.data.cart)
+    await this.props.updateTotal(cartItems.data.cart.length);
+    await this.props.getCartTotal(cartItems.data.cart);
     setTimeout(() => {
       this.setState({
         isLoading: false
@@ -162,7 +171,7 @@ class Product extends Component {
                   <Button onClick={this.buyNow} variant="contained" color="primary" disableElevation>Buy Now</Button>
                 
                 
-                  <Button  variant="contained" color="primary" disableElevation>Add To Cart</Button>
+                  <Button onClick={this.addToCart} variant="contained" color="primary" disableElevation>Add To Cart</Button>
                 
               </div>
             </div>

@@ -4,7 +4,7 @@ import Routes from './routes';
 import Header from './Components/Header/Header';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {getUser} from './Redux/reducer'; 
+import {getUser, updateTotal} from './Redux/reducer'; 
 import Footer from './Components/Footer/Footer';
 // import Comingsoon from './Components/Comingsoon/Comingsoon';
 
@@ -21,6 +21,8 @@ class App extends Component {
       this.props.getUser(res.data)
     })
     .catch(err => console.log(err))
+    const cartItems = await axios.get('/cart/');
+    this.props.updateTotal(cartItems.data.cart.length)
   }
   render(){
     return (
@@ -35,4 +37,4 @@ class App extends Component {
 }
 
 const mapStateToProps = reduxState => reduxState;
-export default connect(mapStateToProps, {getUser})(App); 
+export default connect(mapStateToProps, {getUser, updateTotal})(App); 

@@ -1,4 +1,23 @@
+h1 {
+    text-align: center;
+}
 .cart-wrapper-div {
     margin-left: 6vw;
     min-height:67vh;
+}
+@media only screen and (min-width: 768px) {
+    .cart-wrapper-div {
+        margin-left: 14vw;
+        min-height:81.8vh;
+    }
+    #cart-cartitems-cont{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media only screen and (min-width: 1050px) {
+    .cart-wrapper-div {
+        margin-left: 6vw;
+        min-height:78vh;
+    }
 }
