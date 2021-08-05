@@ -10,8 +10,8 @@ const slideImages = [
   // pic1,
   // pic2,
   // pic3
-  'https://image.freepik.com/free-photo/girlfriends-going-shopping-concept_53876-86016.jpg',
-  'https://image.freepik.com/free-photo/magnificent-woman-long-bright-skirt-dancing-studio-carefree-inspired-female-model-posing-with-pleasure-yellow_197531-11084.jpg',
+  'https://wallpapercave.com/wp/wp7030260.jpg',
+  'https://wallpapercave.com/wp/wp6326192.jpg',
   'https://wallpaperaccess.com/full/1448056.jpg'
 ];
 

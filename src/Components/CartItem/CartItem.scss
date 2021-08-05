@@ -16,11 +16,11 @@
         margin-top: 0;
     }
     #cart-item-delete-quantity-cont {
-        // border:1px solid red;
         height:5vh;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        width:90%;
         span {
             font-size: 18px;
         }
@@ -96,11 +96,11 @@
 // cart layout 2 
 @media only screen and (min-width: 768px) {
     #cart-item-primary-cont {
-        width:50%;
+        width:30%;
         margin:15px 0;
         #cart-item-delete-quantity-cont {
             #cart-item-product-counter {
-                width:45%; 
+                width:45%;
             }
         }
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Cart.scss';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 import {connect} from 'react-redux';
 import {getCartTotal} from '../../Redux/reducer';
 import CartItem from '../CartItem/CartItem';
@@ -29,10 +29,17 @@ class Cart extends Component {
         })
         return ( 
             this.state.items.length <= 0 ? <AddItemsLoader /> :
-            <div className='cart-wrapper-div'>
+            <div>
                 <h1>Shopping Cart</h1>
-                <div id='cart-cartitems-cont'>
-                    {cartItems}
+                <div className='cart-wrapper-div'>
+                    <div id='cart-cartitems-cont'>
+                        <div>
+                            {cartItems}
+                        </div>
+                    </div>
+                    <div id='cart-summary-wrapper'>
+                        <h5>Summary</h5>
+                    </div>
                 </div>
             </div>
          );

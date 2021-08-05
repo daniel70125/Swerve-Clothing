@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './AddItemsLoader.scss'
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 

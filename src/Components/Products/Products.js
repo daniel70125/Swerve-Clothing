@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
 import ScrollUpButton from 'react-scroll-up-button';
@@ -69,6 +69,7 @@ class Products extends Component {
               <div id='product-card' className='product-Cards'>
                 <img alt={elm.title} src={elm.img}/> 
                  {/* img size: 400 X 500 */}
+                 <p>{elm.title}</p>
                  <p>${elm.price}</p>
               </div>
             </Link>

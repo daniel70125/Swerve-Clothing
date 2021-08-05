@@ -6,10 +6,11 @@ import Fade from '@material-ui/core/Fade';
 import {Link} from 'react-router-dom'
 import PopularItems from '../PopularItems/PopularItems';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 import Delivery from '../../Pictures/delivery.png'; 
 import Guarantee from '../../Pictures/guarantee.png'; 
 import Support from '../../Pictures/support.png'; 
+import Coupon from '../../Pictures/coupon.png'; 
 
 class Home extends Component {
     constructor(props) {
@@ -63,15 +64,19 @@ class Home extends Component {
                     </Fade>
                     <hr style={{"color":""}}/>
                     <Fade in='true' timeout={7000}>
-                        <Link to='/products/'>
-                            <Button variant="contained" style={{"background":"grey"}} disableElevation>Shop Now</Button>
+                        <Link id='home-shopnow-link' to='/products/'>
+                            <Button id='home-shopnow-btn' variant="contained" style={{"background":"darkgrey"}} disableElevation>Shop Now</Button>
                         </Link>
                     </Fade>
                 </div>
                 <div id='home-qoute'>
-                <div className='quote-box'>
+                    <div className='quote-box'>
                         <img alt='guarantee icon' src={Guarantee} />
                         <h5>Money Back Gurantee</h5>
+                    </div>
+                    <div className='quote-box'>
+                        <img alt='guarantee icon' src={Coupon} />
+                        <h5>Gift Coupon</h5>
                     </div>
                     <div className='quote-box'>
                         <img alt='delivery icon' src={Delivery} />

@@ -1,6 +1,9 @@
 #portfolio-cont {
     min-height: 100vh;
 }
+#product-title {
+    font-weight: bold;
+}
 #portfolio-header {
     height:25vh;
     color:white;
@@ -88,15 +91,18 @@
     background-size: cover;
     a {
         transition: all 0.5s;
-        margin: auto;
-        width:90%;
+        width: 90%;
         position: relative;
-        // margin: 10px auto 10px auto;
-        height: 50vh;
+        color: black;
+        background: lightgrey;
+        min-height: 75vh;
+        padding: 5px;
+        margin: 10px auto;
         overflow: hidden;
+        text-align: center;
     }
     #product-card {
-        height:45vh;
+        height:60vh;
         position: relative;
         img {
             height:100%;
@@ -105,7 +111,9 @@
         p {
             font-size: 20px;
             margin: 5px 0;
-            font-weight: 700;
+        }
+        p:nth-child(2){
+            font-weight:bold
         }
     }
 }
@@ -130,7 +138,7 @@
             transform: translateY(-12px);
         }
         a {
-            margin:10px;
+            margin:6px;
             width:45%;
         }
     }
@@ -141,7 +149,7 @@
         #item-cont {
             justify-content: start;
             a {
-                width:31%;
+                width:24%;
                 height:64vh;
             }
             #product-card {

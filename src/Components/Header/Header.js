@@ -62,7 +62,7 @@ class Header extends Component {
                     <Link to='#'>
                         <FontAwesomeIcon icon={faTwitter} />
                     </Link>
-                    <a href='https://www.instagram.com/swervenation_clothing/'>
+                    <a href='#'>
                         <FontAwesomeIcon icon={faInstagram} />
                     </a>
                 </div>

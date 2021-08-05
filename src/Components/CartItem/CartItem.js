@@ -8,18 +8,20 @@ class CartItem extends Component {
         super(props);
         this.state = {  }
     }
+    // Dummy Data that comes in below
 //     color: "undefined"
 // img: "https://www.w3schools.com/w3images/jeans2.jpg"
 // items: 1
 // price: "20.00"
 // size: "undefined"
 // title: "Dress HD"
+
     render() { 
-        const {elm, index} = this.props;
+        const {elm} = this.props;
         console.log(this.props.elm)
         return ( 
             <div id='cart-item-primary-cont'>
-                <img src={elm.img} />
+                <img alt={elm.title} src={elm.img} />
                 <p>{elm.title}</p>
                 <p>Size: {elm.size}</p>
                 <div id='cart-item-delete-quantity-cont'>
@@ -30,7 +32,7 @@ class CartItem extends Component {
                         <div id='cart-item-quantity'>Quantity: {elm.items}</div>
                         <div onClick={() => this.quantityUp()} id='add-btn'>+</div>
                     </div>
-                    <span>$ {+elm.price * elm.items}</span>
+                    <span>${+elm.price * elm.items}</span>
                 </div>
             </div>
          );

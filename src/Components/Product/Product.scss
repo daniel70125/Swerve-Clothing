@@ -21,6 +21,28 @@
 #review-text {
     display: block;
 }
+.product-review-wrapper {
+    border: 5px solid lightgrey;
+    background-color: lightgrey;
+    padding: 10px;
+    min-height:18vh;
+    border-radius: 10px;
+    width: 80%;
+    margin: 15px auto;
+    .product-review-icon {
+        width:100px;
+        float: left;
+        margin-right:15px;
+    }
+    #product-review-username {
+        font-weight: bold;
+        font-size: 18px;
+    }
+    p {
+        font-size: 17px;
+        color:white;
+    }
+}
 #product-cont {
 width:100vw;
 display: flex;
@@ -45,7 +67,7 @@ border-bottom:1px solid grey;
         #box1{
             border-bottom:1px solid lightgrey;
             padding:10px;
-            height:100px;
+            height:120px;
             p {
                 font-size:22px;
                 font-weight: 700;
@@ -62,7 +84,7 @@ border-bottom:1px solid grey;
              }
         }
         #box3{
-            height:235px;
+            height:280px;
             padding:10px;
             #product-btns {
                 height:100%;
@@ -84,15 +106,16 @@ border-bottom:1px solid grey;
                 }
                 button {
                     width:100%;
-                    margin:5px auto;
+                    margin:8px auto;
                 }
                 #product-counter {
-                    height:20%;
+                    height:15%;
                     font-size:22px;
                     border:1px solid lightgrey;
                     display: flex;
                     justify-content: space-between;
                     overflow: hidden;
+                    // margin:10px;
                     #minus-btn, #add-btn {
                         height:100%;
                         width:30px;
@@ -111,12 +134,16 @@ border-bottom:1px solid grey;
 }
 .modal-content2 {
     background-color: #fefefe;
+    border-radius: 2%;
     // background-color: lightgrey;
     display: flex;
     flex-direction: column;
     margin: 8% auto 0 auto; /* 15% from the top and centered */
     height:70vh;
     width: 100%; /* Could be more or less, depending on screen size */
+        textarea {
+            border-radius: 5px;
+        }
   }
   .close2 {
     color: #aaa;
@@ -198,6 +225,7 @@ border-bottom:1px solid grey;
     
     #related-main {
         display: flex;
+        justify-content: space-around;
         a:hover {
             transform: translateY(-12px);
         }

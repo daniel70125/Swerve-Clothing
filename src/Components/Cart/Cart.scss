@@ -5,6 +5,16 @@ h1 {
     margin-left: 6vw;
     min-height:67vh;
 }
+#cart-cartitems-cont{
+    display: flex;
+    flex-wrap: wrap;
+}
+#cart-summary-wrapper {
+    border-top:1px solid grey;
+    h5 {
+        font-size:15px;
+    }
+}
 @media only screen and (min-width: 768px) {
     .cart-wrapper-div {
         margin-left: 14vw;

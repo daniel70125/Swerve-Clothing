@@ -6,7 +6,7 @@ import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import GMap from '../GoogleMap/GoogleMap';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 
 class Contact extends Component {
     constructor(props) {
@@ -45,7 +45,6 @@ class Contact extends Component {
                     </div>
                     </div>
                 </div>
-                <Footer />
             </div>
          );
     }
