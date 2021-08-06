@@ -28,6 +28,7 @@ class Product extends Component {
      this.addToCart = this.addToCart.bind(this);
   }
    async componentDidMount(){
+    // window.location.reload()
      const reviewBGColors = ['#476072', '#548CA8', '#334257', '#423F3E', '#343A40'] // Array of colors
     //  var colorPicker = Math.floor(Math.random() * 5); // Background picker
      const reviewBoxes= document.querySelectorAll('.product-review-wrapper'); // Review boxes array;
@@ -97,6 +98,13 @@ class Product extends Component {
     await this.props.updateTotal(cartItems.data.cart.length);
     await this.props.getCartTotal(cartItems.data.cart);
   }
+  onchange(){
+    window.scrollTo({
+      top: 100,
+      left: 100,
+      behavior: 'smooth'
+    });
+  }
   async buyNow(){
     const {title, price, img, id} = this.props.product;
     // const {index} = this.props;
@@ -120,7 +128,7 @@ class Product extends Component {
     // Render each item below
     const item = this.state.relatedItems.map((elm, index) => {
       return (
-            <Link key={index} style={{"textDecoration":"none"}} to={`/item/${elm.id}`}>
+            <Link onClick={() => setTimeout(() => this.onchange(), 500)} key={index} style={{"textDecoration":"none"}} to={`/item/${elm.id}`}>
               <SimilarItems title={elm.title} img={elm.img} price={elm.price} />
             </Link>
       )
@@ -151,7 +159,7 @@ class Product extends Component {
             <div id='box2'><p>{this.props.product.description}</p></div>
             <div id='box3'>
               <div id='product-btns'>
-                {/* <div id='extra-styles-cont'>
+                <div id='extra-styles-cont'>
                   <div>
                     <span>Color: </span>
                     <select onChange={(e) => this.setState({color:e.target.value})} defaultValue={'DEFAULT'}>
@@ -170,7 +178,7 @@ class Product extends Component {
                       <option value="DEFAULT">Choose Your Size</option>
                     </select>
                   </div>
-                </div> */}
+                </div>
                 <div id='product-counter'>
                   <div onClick={() => this.quantityDown()} id='minus-btn'>-</div>
                   <div style={{"margin":"5px","height":"100%"}}>Quantity: {this.state.items}</div>
@@ -193,7 +201,7 @@ class Product extends Component {
         </div>
         <div className='product-review-wrapper'>
           <img alt='user' src={icon2} className='product-review-icon'/> 
-          <p><span id='product-review-username'>@Kathy210!</span> - March 8, 2021</p>
+          <p><span id='product-review-username'>@wizrdboy!</span> - September 17, 2021</p>
           <p> All my items were true to size, and they arrived earlier then expected arrival day. Perfect modern
             fit and great feel and stretch to the material, my new go to clothing store! </p>
         </div>
@@ -206,7 +214,8 @@ class Product extends Component {
         <div id="myModal2" className="modal">
                     <div className="modal-content2">
                         <span onClick={this.closeModal} className="close2">&times;</span>
-                        <div id='review-main-cont'>
+                        <div style={{"textAlign":"center"}} id='review-main-cont'>
+                          <img style={{"width":"45%", "height":"40vh", "marginTop":"10px"}} src={this.props.product.img} />
                           <h1 className="es-title">Leave us a review !</h1>
                           <p style={{"textAlign":"center"}}>What do you think about {this.props.product.title} ?</p>
                           <textarea id="review-text" name="review-text" placeholder="Enter your review here ... "></textarea>        
