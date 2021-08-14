@@ -1,8 +1,11 @@
 #popular-cont {
     text-align: center;
     width:100%;
-    height:70vh;
     margin: 10px 0;
+    img {
+        width:100%;
+        height: 65vh;
+    }
         p.type {
             font-size:25px;
         }
@@ -12,5 +15,8 @@
     #popular-cont {
         width:100%;
         height:auto;
+        img {
+            height:55vh;
+        }
     }
 }

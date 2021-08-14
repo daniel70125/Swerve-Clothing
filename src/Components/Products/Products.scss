@@ -140,6 +140,10 @@
         a {
             margin:6px;
             width:45%;
+            min-height:47vh;
+        }
+        #product-card {
+            height:40vh;
         }
     }
 }
@@ -149,8 +153,8 @@
         #item-cont {
             justify-content: start;
             a {
-                width:24%;
-                height:64vh;
+                width:23%;
+                height:70vh;
             }
             #product-card {
                 height:60vh;

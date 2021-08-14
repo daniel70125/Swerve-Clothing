@@ -80,8 +80,15 @@ html {
 #home-latest-items {
     display: flex;
     flex-direction: column;
+    ing {
+        width:100%;
+    }
     a {
         transition: all 0.5s;
+        padding: 5px;
+        background-color: lightgrey;
+        // border-radius: 5px;
+        margin-bottom: 30px;
     }
 }
 /* The Modal (background) */
@@ -177,6 +184,13 @@ html {
                 }
         }
     }
+    #home-latest-items {
+        flex-wrap: wrap;
+        flex-direction: row;
+        .popular-link {
+            width:23%;
+        }
+    }
     #home-qoute {
         flex-direction: row;
         padding: 5px;
@@ -215,9 +229,11 @@ html {
       } 
     } 
     #home-latest-items {
+        display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-bottom:15px;
+        flex-wrap: wrap;
         a:hover {
             transform: translateY(-12px);
         }

@@ -17,7 +17,7 @@ class SimilarItems extends Component {
         const {title, price, img} = this.props
         return ( 
             <div id='popular-cont'>
-                <img alt=''  src={img} style={{"width":"100%", "height":"50vh"}} />
+                <img alt={title} src={img} />
                 <p style={{"marginBottom":"0"}} className='type'>{title}</p>
                 <p>${price} <span style={{"fontSize":"12px"}}>+shipping</span></p>
             </div>

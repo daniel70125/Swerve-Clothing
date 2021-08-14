@@ -52,7 +52,7 @@ border-bottom:1px solid grey;
         width:100vw;
         text-align: center;
         img {
-            width:90%;
+            max-width:100%;
             margin:auto;
             height:60vh;
         }
@@ -214,6 +214,20 @@ border-bottom:1px solid grey;
     resize: none;
     width: 90%;
 }
+#related-main {
+    display: flex;
+    justify-content: space-around;
+    a:hover {
+        transform: translateY(-12px);
+    }
+    a {
+        transition: all 0.5s;
+        background-color: lightgrey;
+        width: 24%;
+        padding: 5px;
+        margin:5px;
+    }
+}
 @media only screen and (min-width: 600px) {
     #product-main-cont {
         margin-left: 14vw;
@@ -257,7 +271,7 @@ border-bottom:1px solid grey;
         #product-box1{
             width:48%;
             img {
-                width:80%;
+                // width:100%;
                 height:80vh;
             }
         }

@@ -2,12 +2,16 @@ h1 {
     text-align: center;
 }
 .cart-wrapper-div {
-    margin-left: 6vw;
     min-height:67vh;
 }
 #cart-cartitems-cont{
     display: flex;
     flex-wrap: wrap;
+}
+#cart-cartitems-cont > div {
+    display: flex;
+    flex-direction: column;
+    width:100%;
 }
 #cart-summary-wrapper {
     border-top:1px solid grey;
@@ -20,8 +24,8 @@ h1 {
         margin-left: 14vw;
         min-height:81.8vh;
     }
-    #cart-cartitems-cont{
-        display: flex;
+    #cart-cartitems-cont > div {
+        flex-direction: row;
         flex-wrap: wrap;
     }
 }

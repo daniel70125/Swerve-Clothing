@@ -95,7 +95,7 @@ class Home extends Component {
                 
                 {/* Products Items */}
                 <p style={{"textAlign":"center", "fontSize":"36px", "marginBottom":"5px", "marginTop":"35px"}}>Latest Items</p>
-                <hr style={{"color":"orange", "width":"20%", "border":"1px solid orange", "marginBottom":"80px"}}/>
+                <hr style={{"color":"orange", "width":"20%", "border":"1px solid orange"}}/>
                 <div id='home-latest-items'>
                     {popularItems}
                 </div>
