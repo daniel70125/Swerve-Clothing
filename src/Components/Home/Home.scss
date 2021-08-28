@@ -79,14 +79,15 @@ html {
 }
 #home-latest-items {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     ing {
         width:100%;
     }
     a {
         transition: all 0.5s;
         padding: 5px;
-        background-color: lightgrey;
         // border-radius: 5px;
         margin-bottom: 30px;
     }
@@ -161,7 +162,7 @@ html {
     }
   }
   .popular-link {
-      width:100%;
+      width:45%;
       text-decoration: none;
   }
   .popular-link:hover {
@@ -187,8 +188,10 @@ html {
     #home-latest-items {
         flex-wrap: wrap;
         flex-direction: row;
+        justify-content: space-around;
         .popular-link {
-            width:23%;
+            width:40%;
+            border-radius: 13px;
         }
     }
     #home-qoute {
@@ -236,6 +239,9 @@ html {
         flex-wrap: wrap;
         a:hover {
             transform: translateY(-12px);
+        }
+        .popular-link {
+            width:24%;
         }
     }
     

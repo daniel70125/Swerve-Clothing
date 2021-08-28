@@ -9,6 +9,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 10px;
+    li.MuiBreadcrumbs-li > p {
+        font-size:18px;
+        color:grey;
+    }
 }
 #related-items-h3 {
     text-align: center;
@@ -217,18 +221,23 @@ border-bottom:1px solid grey;
 #related-main {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     a:hover {
         transform: translateY(-12px);
     }
     a {
         transition: all 0.5s;
-        background-color: lightgrey;
-        width: 24%;
+        width: 42%;
         padding: 5px;
         margin:5px;
     }
 }
 @media only screen and (min-width: 600px) {
+    #product-nav {
+        li.MuiBreadcrumbs-li > p {
+            font-size:24px;
+        }
+    }
     #product-main-cont {
         margin-left: 14vw;
     }

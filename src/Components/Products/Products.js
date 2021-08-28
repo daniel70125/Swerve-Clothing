@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import ScrollUpButton from 'react-scroll-up-button';
 import {Link} from 'react-router-dom';
 import './Products.scss';
-import ScrollReveal from 'scrollreveal'
+import ScrollReveal from 'scrollreveal';
 // import Button from '@material-ui/core/Button';
 import axios from 'axios';
 

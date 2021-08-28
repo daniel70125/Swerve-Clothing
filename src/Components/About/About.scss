@@ -1,0 +1,197 @@
+#about-wrapper {
+    min-height:50vh;
+    #header-text {
+    height: 20vh;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    }
+    .about-p-headers {
+        font-size:22px;
+        text-align: center;
+        font-weight: bold;
+    }
+    #about-p-headers-whoweare{
+    margin-bottom: 0;
+    font-size: 1.0rem;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0;
+    color: #777;
+    }
+    #about-img-passion {
+        width:100%;
+        margin-bottom:5vh;
+    }
+    #about-qualities-wrapper {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        div {
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+        p.about-p-firstchild{
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        p.about-p-secondchild{
+            width:90%;
+        }
+    }
+    #about-customer-stats-img{
+        height:35vh;
+        background-image: url('https://images.unsplash.com/photo-1504672281656-e4981d70414b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color:white;
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 25px;
+        div {
+            width:50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            p:nth-child(1){
+                font-size:42px;
+                margin-bottom: 0;
+                font-weight: bold;
+            }
+            p:nth-child(2){
+                font-size:18px;
+            }
+        }
+    }
+    #about-team-wrapper {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        .about-team-card-wrapper {
+            margin-bottom:5vh;
+            position: relative;
+            .about-team-overlay-wrapper {
+                position: absolute;
+                width:75%;
+                left:12.5vw;
+                // height:37vh;
+                height: 0;
+                background-image: linear-gradient(rgba(231, 223, 223, 0.5), rgba(0, 0, 0, 0.5));
+                top:0;
+                transition: height 0.5s;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    font-size:32px;
+                    width:30%;
+                    color:#302e2e;
+                }
+            }
+        }
+        p:nth-child(2){
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        p:nth-child(3){
+            margin-top:5px;
+        }
+        .about-team-img-overlay-cont {
+            text-align: center;
+            img {
+                width: 75%;
+                height: 37vh;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    #about-wrapper {
+        margin-left: 14vw;
+        #about-qualities-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom:3vh;
+            div {
+                width:50%;
+            }
+            p.about-p-firstchild{
+                margin-bottom: 15px;
+            }
+        }
+        p:nth-child(3){
+            width:85%;
+            margin:auto;
+        }
+        #about-customer-stats-img{
+            height:27vh;
+            div {
+                width:25%;
+                p:nth-child(1){
+                    letter-spacing: 0.05em;
+                }
+                p:nth-child(2){
+                    
+                }
+            }
+        }
+        #about-img-passion {
+            width:90%
+        }
+        #about-team-wrapper {
+            flex-direction: row;
+            flex-wrap: wrap;
+            .about-team-card-wrapper {
+                width:45%;
+                
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1050px) {
+    #about-wrapper {
+        margin-left: 6vw;
+        #about-qualities-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: 5vh;
+            div {
+                width:30%;
+            }
+        }
+        #about-customer-stats-img{
+            height:33vh;
+            div {
+                width:25%;
+                p:nth-child(1){
+                    letter-spacing: 0.05em;
+                }
+                p:nth-child(2){
+                    
+                }
+            }
+        }
+        #about-img-passion {
+            width:75%;
+        }
+        #about-team-wrapper {
+            
+        }
+    }
+}

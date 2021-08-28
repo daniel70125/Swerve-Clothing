@@ -5,7 +5,7 @@
     font-weight: bold;
 }
 #portfolio-header {
-    height:25vh;
+    height:20vh;
     color:white;
     background-position: center;
     background-repeat: no-repeat;
@@ -34,12 +34,12 @@
     align-items: center;
     h2 {
         position: relative;
-        top:40px;
+        top:15px;
         font-size:32px;
     }
     nav {
         position: relative;
-        top:40px;
+        top:8px;
     }
 }
 .tab {
@@ -83,29 +83,25 @@
 }
 #item-cont {
     margin-top: 5px;
-    min-height:65vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     background-size: cover;
     a {
         transition: all 0.5s;
-        width: 90%;
+        width: 45%;
         position: relative;
-        color: black;
-        background: lightgrey;
-        min-height: 75vh;
+        color: black; 
         padding: 5px;
         margin: 10px auto;
         overflow: hidden;
         text-align: center;
     }
     #product-card {
-        height:60vh;
         position: relative;
         img {
-            height:100%;
+            min-height:22vh;
             width:100%;
         }
         p {
@@ -135,7 +131,8 @@
         flex-direction: row;
         justify-content: center;
         a:hover {
-            transform: translateY(-12px);
+            transform: translateY(-10px);
+            background-color: lightgrey;
         }
         a {
             margin:6px;
@@ -154,10 +151,14 @@
             justify-content: start;
             a {
                 width:23%;
-                height:70vh;
+                height:55vh;
             }
             #product-card {
                 height:60vh;
+                img {
+                    min-height: 44vh;
+                    max-height: 44vh;
+                }
             }
         }
     }

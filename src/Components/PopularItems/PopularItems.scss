@@ -4,19 +4,29 @@
     margin: 10px 0;
     img {
         width:100%;
-        height: 65vh;
+        height: 30vh;
     }
         p.type {
-            font-size:25px;
+            font-size:20px;
+            font-weight: bold;
         }
         
+}
+@media only screen and (min-width: 768px) {
+    #popular-cont {
+        width:100%;
+        height:auto;
+        img {
+            height:30vh;
+        }
+    }
 }
 @media only screen and (min-width: 1200px) {
     #popular-cont {
         width:100%;
         height:auto;
         img {
-            height:55vh;
+            height:44vh;
         }
     }
 }

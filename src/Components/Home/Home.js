@@ -12,6 +12,7 @@ import Guarantee from '../../Pictures/guarantee.png';
 import Support from '../../Pictures/support.png'; 
 import Coupon from '../../Pictures/coupon.png'; 
 
+
 class Home extends Component {
     constructor(props) {
         super(props);

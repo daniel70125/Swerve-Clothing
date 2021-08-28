@@ -24,7 +24,6 @@ class PopularItems extends Component {
                 <img alt='img' src={img} />
                 <p style={{"marginBottom":"0"}} className='type'>{title}</p>
                 <p>${price} <span style={{"fontSize":"12px"}}>+shipping</span></p>
-                <Button variant="contained"  >Add To Cart</Button>
             </div>
          );
     }

@@ -144,7 +144,7 @@ class Product extends Component {
                 <Link style={{"color":"white"}} to="/products/">
                     Products
                 </Link>
-                <Typography style={{"color":"grey", "fontSize":"24px"}}>{this.props.product.title}</Typography>
+                <Typography>{this.props.product.title}</Typography>
               </Breadcrumbs>
           </div>
         <div id='product-cont'>
